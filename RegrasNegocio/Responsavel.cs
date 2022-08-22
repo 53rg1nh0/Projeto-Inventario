@@ -39,8 +39,7 @@ namespace RelacaoPespUni
                 UserId = userID;
                 Area = t.Rows[0]["AREA"].ToString();
                 Cargo = t.Rows[0]["CARGO"].ToString();
-                Sigla = t.Rows[0]["SIGLA"].ToString();
-                Unidade = new Unidade(Sigla);
+                Unidade = new Unidade(t.Rows[0]["SIGLA"].ToString());
 
                 Senha = t.Rows[0]["SENHA"].ToString();
                 TelefoneCorporativo = t.Rows[0]["TELCORP"].ToString();
