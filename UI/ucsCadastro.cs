@@ -36,23 +36,23 @@ namespace UI
                 {
                     Cliente c = new Cliente(txbCadastroUsuario.Text);
 
-                    System.Net.Mail.SmtpClient client = new System.Net.Mail.SmtpClient();
+                    SmtpClient client = new SmtpClient();
                     client.Host = "smtp.gmail.com";
-                    client.Port = 465;
+                    client.Port = 587;
                     client.EnableSsl = true;
-                    client.Credentials = new System.Net.NetworkCredential("serginhoagostinho@gmail.com", "111360130");
+                    client.Credentials = new System.Net.NetworkCredential("serginhoagostinho@gmail.com", "fiwomfoxiakcjecn");
+                    client.DeliveryMethod = SmtpDeliveryMethod.Network;
 
                     MailMessage mensagem = new MailMessage();
 
-                    mensagem.Sender = new System.Net.Mail.MailAddress("serginhoagostinho@gmail.com", "Sergio");
-                    mensagem.From = new MailAddress("serginhoagostinho@gmail.com", "Sergio");
-                    mensagem.To.Add(new MailAddress("serginhoagostinho@gmail.com","Sergio"));
+                    //mensagem.Sender = new MailAddress("serginhoagostinho@gmail.com", "Sergio");
+                    mensagem.From = new MailAddress("sesousa@solarbr.com.br", "INVENTÁRIO TI");
+                    mensagem.To.Add(new MailAddress("sesousa@solarbr.com.br","Sergio"));
 
                     mensagem.Subject = "Alterar senha Sistema Inventário TI";
                     mensagem.Body = "Aew!";
 
                     mensagem.IsBodyHtml = true;
-                    mensagem.Priority = MailPriority.High;
 
                     client.Send(mensagem);
 
