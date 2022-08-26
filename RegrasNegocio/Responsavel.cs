@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using ConexaoDB;
 using System.Text.RegularExpressions;
 using System.Data;
+using System.Net.Mail;
 
 namespace RelacaoPespUni
 {
@@ -53,7 +54,41 @@ namespace RelacaoPespUni
             }
         }
 
+        public static void Autenticar(string email)
+        {
+            
 
+            SmtpClient client = new SmtpClient();
+            client.Host = "smtp.gmail.com";
+            client.Port = 587;
+            client.EnableSsl = true;
+            client.Credentials = new System.Net.NetworkCredential("serginhoagostinho@gmail.com", "fiwomfoxiakcjecn");
+            client.DeliveryMethod = SmtpDeliveryMethod.Network;
+
+            MailMessage mensagem = new MailMessage();
+
+            mensagem.From = new MailAddress("sesousa@solarbr.com.br", "INVENTÁRIO TI");
+            mensagem.To.Add(new MailAddress(email));
+
+            mensagem.Subject = "Alterar senha Sistema Inventário TI";
+            mensagem.Body = SenhaTemporaria();
+
+            mensagem.IsBodyHtml = true;
+
+            client.Send(mensagem);
+        }
+
+        private static string SenhaTemporaria()
+        {
+            string chars = @"abcdefghjkmnpqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVYWXZ023456789!@#$%¨&*";
+            string pass = "";
+            Random random = new Random();
+            for (int f = 0; f < 8; f++)
+            {
+                pass = pass + chars.Substring(random.Next(0, chars.Length - 1), 1);
+            }
+            return pass;
+        }
         //propriedade movimentação
     }
 }

@@ -36,25 +36,7 @@ namespace UI
                 {
                     Cliente c = new Cliente(txbCadastroUsuario.Text);
 
-                    SmtpClient client = new SmtpClient();
-                    client.Host = "smtp.gmail.com";
-                    client.Port = 587;
-                    client.EnableSsl = true;
-                    client.Credentials = new System.Net.NetworkCredential("serginhoagostinho@gmail.com", "fiwomfoxiakcjecn");
-                    client.DeliveryMethod = SmtpDeliveryMethod.Network;
-
-                    MailMessage mensagem = new MailMessage();
-
-                    //mensagem.Sender = new MailAddress("serginhoagostinho@gmail.com", "Sergio");
-                    mensagem.From = new MailAddress("sesousa@solarbr.com.br", "INVENTÁRIO TI");
-                    mensagem.To.Add(new MailAddress("sesousa@solarbr.com.br","Sergio"));
-
-                    mensagem.Subject = "Alterar senha Sistema Inventário TI";
-                    mensagem.Body = "Aew!";
-
-                    mensagem.IsBodyHtml = true;
-
-                    client.Send(mensagem);
+                    Responsavel.Autenticar(txbCadastroEmail.Text);
 
                     txbCadastroSenhaTemp.Enabled = true;
                     txbCadastroSenhaTemp.Focus();
