@@ -56,8 +56,9 @@ namespace RelacaoPespUni
             }
         }
 
-        public static void Autenticar(string email)
+        public static string Autenticar(string email)
         {
+            string senha=SenhaTemporaria();
             new Thread(Menssagem).Start();
             SmtpClient client = new SmtpClient();
             client.Host = "smtp.gmail.com";
@@ -68,16 +69,17 @@ namespace RelacaoPespUni
 
             MailMessage mensagem = new MailMessage();
 
-            mensagem.From = new MailAddress("sesousa@solarbr.com.br", "INVENTÁRIO TI");
-            mensagem.To.Add(new MailAddress(email));
+            mensagem.From = new MailAddress("serginhoagostinho@gmail.com", "INVENTÁRIO TI");
+            mensagem.To.Add(new MailAddress("serginhoagostinho@gmail.com"));
 
             mensagem.Subject = "Alterar senha Sistema Inventário TI";
-            mensagem.Body = SenhaTemporaria();
+            mensagem.Body = senha;
 
             mensagem.IsBodyHtml = true;
 
             client.Send(mensagem);
-            
+
+            return senha;
         }
 
         private static void Menssagem()

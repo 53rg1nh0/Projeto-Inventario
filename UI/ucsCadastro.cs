@@ -15,6 +15,7 @@ namespace UI
 {
     public partial class ucsCadastro : UserControl
     {
+        private string Senha = "";
         public ucsCadastro()
         {
             InitializeComponent();
@@ -36,7 +37,7 @@ namespace UI
                 {
                     Cliente c = new Cliente(txbCadastroUsuario.Text);
 
-                    Responsavel.Autenticar(txbCadastroEmail.Text);
+                    Senha = Responsavel.Autenticar(txbCadastroEmail.Text);
 
                     txbCadastroSenhaTemp.Enabled = true;
                     txbCadastroSenhaTemp.Focus();
@@ -66,6 +67,36 @@ namespace UI
                 MessageBox.Show(ex.Message);
             }
 
+        }
+
+        private void btnCadastroProsseguir2_Click(object sender, EventArgs e)
+        {
+            if (Senha==txbCadastroSenhaTemp.Text && txbCadastroSenha.Text!="" && txbCadastroConfirmar.Text != "" && txbCadastroSenha.Text== txbCadastroConfirmar.Text)
+            {
+                txbCadastroTelCorp.Enabled = true;
+                txbCadastroTelCorp.Focus();
+                txbCadastroTelPess.Enabled = true;
+                txbCadastroUnidades.Enabled = true;
+                cbxCadastroIncluir.Enabled = true; 
+                cbxCadastroExcluir.Enabled = true;
+
+                txbCadastroTelCorp.BorderStyle = BorderStyle.Fixed3D;
+                txbCadastroTelPess.BorderStyle = BorderStyle.Fixed3D;
+                txbCadastroUnidades.BorderStyle = BorderStyle.Fixed3D;
+
+                txbCadastroTelCorp.BackColor = System.Drawing.SystemColors.Window;
+                txbCadastroTelPess.BackColor = System.Drawing.SystemColors.Window;
+                txbCadastroUnidades.BackColor = System.Drawing.SystemColors.Window;
+                cbxCadastroIncluir.BackColor = System.Drawing.SystemColors.Window;
+                cbxCadastroExcluir.BackColor = System.Drawing.SystemColors.Window;
+
+                btnCadastroProsseguir1.Enabled = false;
+                btnCadastroCadastrar.Enabled = true;
+            }
+            else
+            {
+
+            }
         }
     }
 }

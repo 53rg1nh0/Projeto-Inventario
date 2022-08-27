@@ -24,10 +24,11 @@ namespace RelacaoPespUni
         {
             Con = new Conexao();
             DataTable t = new DataTable();
-            UserId=userId;
-            if (t.Rows.Count == 0 && !string.IsNullOrEmpty(UserId))
-            {
-                t = Con.SqlCapturar("SELECT MATRICULA, NOME, AREA, CARGO, SIGLA FROM CLIENTE WHERE USERID = '" + userId + "'");
+
+            t = Con.SqlCapturar("SELECT MATRICULA, NOME, AREA, CARGO, SIGLA FROM CLIENTE WHERE USERID = '" + userId + "'");
+
+            try 
+            { 
                 Nome = t.Rows[0]["NOME"].ToString();
                 UserId = userId;
                 Matricula = Convert.ToInt32(t.Rows[0]["MATRICULA"]);
@@ -35,7 +36,7 @@ namespace RelacaoPespUni
                 Cargo = t.Rows[0]["CARGO"].ToString();
                 Unidade = new Unidade(t.Rows[0]["SIGLA"].ToString());
             }
-            else
+            catch
             {
                 throw new ExcessaoRegraNegocio("Usuário inexisente!");
             }

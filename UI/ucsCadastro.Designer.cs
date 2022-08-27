@@ -126,6 +126,7 @@
             this.btnCadastroProsseguir2.TabIndex = 27;
             this.btnCadastroProsseguir2.Text = "Prosseguir com Cadastro";
             this.btnCadastroProsseguir2.UseVisualStyleBackColor = true;
+            this.btnCadastroProsseguir2.Click += new System.EventHandler(this.btnCadastroProsseguir2_Click);
             // 
             // lblCadastroSenhaTemp
             // 
@@ -170,6 +171,7 @@
             // 
             // btnCadastroCadastrar
             // 
+            this.btnCadastroCadastrar.Enabled = false;
             this.btnCadastroCadastrar.Location = new System.Drawing.Point(201, 373);
             this.btnCadastroCadastrar.Name = "btnCadastroCadastrar";
             this.btnCadastroCadastrar.Size = new System.Drawing.Size(153, 23);
@@ -328,7 +330,7 @@
             // 
             // txbCadastroUsuario
             // 
-            this.txbCadastroUsuario.Location = new System.Drawing.Point(132, 89);
+            this.txbCadastroUsuario.Location = new System.Drawing.Point(132, 33);
             this.txbCadastroUsuario.Name = "txbCadastroUsuario";
             this.txbCadastroUsuario.Size = new System.Drawing.Size(222, 23);
             this.txbCadastroUsuario.TabIndex = 4;
@@ -337,7 +339,7 @@
             // 
             this.lblCadastroUsuario.AutoSize = true;
             this.lblCadastroUsuario.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblCadastroUsuario.Location = new System.Drawing.Point(132, 71);
+            this.lblCadastroUsuario.Location = new System.Drawing.Point(132, 15);
             this.lblCadastroUsuario.Name = "lblCadastroUsuario";
             this.lblCadastroUsuario.Size = new System.Drawing.Size(47, 15);
             this.lblCadastroUsuario.TabIndex = 3;
@@ -345,7 +347,7 @@
             // 
             // txbCadastroEmail
             // 
-            this.txbCadastroEmail.Location = new System.Drawing.Point(132, 40);
+            this.txbCadastroEmail.Location = new System.Drawing.Point(132, 90);
             this.txbCadastroEmail.Name = "txbCadastroEmail";
             this.txbCadastroEmail.Size = new System.Drawing.Size(222, 23);
             this.txbCadastroEmail.TabIndex = 2;
@@ -354,7 +356,7 @@
             // 
             this.lblCadastroEmail.AutoSize = true;
             this.lblCadastroEmail.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblCadastroEmail.Location = new System.Drawing.Point(132, 21);
+            this.lblCadastroEmail.Location = new System.Drawing.Point(132, 71);
             this.lblCadastroEmail.Name = "lblCadastroEmail";
             this.lblCadastroEmail.Size = new System.Drawing.Size(41, 15);
             this.lblCadastroEmail.TabIndex = 1;
