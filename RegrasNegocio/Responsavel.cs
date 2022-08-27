@@ -4,6 +4,8 @@ using ConexaoDB;
 using System.Text.RegularExpressions;
 using System.Data;
 using System.Net.Mail;
+using System.Threading;
+using System.Windows;
 
 namespace RelacaoPespUni
 {
@@ -56,8 +58,7 @@ namespace RelacaoPespUni
 
         public static void Autenticar(string email)
         {
-            
-
+            new Thread(Menssagem).Start();
             SmtpClient client = new SmtpClient();
             client.Host = "smtp.gmail.com";
             client.Port = 587;
@@ -76,6 +77,12 @@ namespace RelacaoPespUni
             mensagem.IsBodyHtml = true;
 
             client.Send(mensagem);
+            
+        }
+
+        private static void Menssagem()
+        {
+            MessageBox.Show("Enviado e-mail com senha temporária para alteração!");
         }
 
         private static string SenhaTemporaria()
