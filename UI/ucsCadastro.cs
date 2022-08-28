@@ -16,6 +16,7 @@ namespace UI
     public partial class ucsCadastro : UserControl
     {
         private string Senha = "";
+        private int pagina = 1;
         public ucsCadastro()
         {
             InitializeComponent();
@@ -27,76 +28,78 @@ namespace UI
             frmLogin.ActiveForm.Opacity = 100;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnCadastroCadastrar_Click(object sender, EventArgs e)
         {
             string exp = @"(\w+.)?\w+@solarbr.com.br";
             Regex re = new Regex(exp);
             try
             {
-                if (re.IsMatch(txbCadastroEmail.Text))
+                switch (pagina)
                 {
-                    Cliente c = new Cliente(txbCadastroUsuario.Text);
+                    case 1:
+                        if (re.IsMatch(txbCadastroEmail.Text))
+                        {
+                            Cliente c = new Cliente(txbCadastroUsuario.Text);
 
-                    Senha = Responsavel.Autenticar(txbCadastroEmail.Text);
+                            Senha = Responsavel.Autenticar(txbCadastroEmail.Text);
 
-                    txbCadastroSenhaTemp.Enabled = true;
-                    txbCadastroSenhaTemp.Focus();
-                    txbCadastroSenha.Enabled = true;
-                    txbCadastroConfirmar.Enabled = true;
-                    txbCadastroMtricula.Enabled = true;
+                            pagina = 2;
 
-                    txbCadastroSenhaTemp.BorderStyle = BorderStyle.Fixed3D;
-                    txbCadastroSenha.BorderStyle = BorderStyle.Fixed3D;
-                    txbCadastroConfirmar.BorderStyle = BorderStyle.Fixed3D;
-                    txbCadastroMtricula.BorderStyle = BorderStyle.Fixed3D;
+                            PulaPagina();
 
-                    txbCadastroSenhaTemp.BackColor = System.Drawing.SystemColors.Window;
-                    txbCadastroSenha.BackColor = System.Drawing.SystemColors.Window;
-                    txbCadastroConfirmar.BackColor = System.Drawing.SystemColors.Window;
-                    txbCadastroMtricula.BackColor = System.Drawing.SystemColors.Window;
+                            txbCadastroSenhaTemp.Focus();
 
-                    btnCadastroProsseguir2.Enabled = true;
+                            lblCadastroTitulo.Text = "                 Alterar Senha";
+                        }
+                        else
+                        {
+                            throw new Exception("E-mail não é valido! Apenas e-mail com domínio (solarbr.com.br)");
+                        }
+
+                        break;
+                    case 2:
+                        if (Senha == txbCadastroSenhaTemp.Text && txbCadastroSenha.Text != "" && txbCadastroConfirmar.Text != "" && txbCadastroSenha.Text == txbCadastroConfirmar.Text)
+                        {
+
+                            pagina = 3;
+
+                            PulaPagina();
+
+                            txbCadastroUnidades.Focus();
+
+                            lblCadastroTitulo.Text = "              Cadastrar Dados";
+                        }
+                        else
+                        {
+                            if(Senha != txbCadastroSenhaTemp.Text)
+                            {
+                                throw new Exception("Senha de autenticação não confere com a enviada por e-mail!");
+                            }
+                            else if(txbCadastroConfirmar.Text == "" || txbCadastroSenha.Text == "")
+                            {
+                                throw new Exception("A senha alterada não pode ser nula!");
+                            }
+                            else if (txbCadastroSenha.Text != txbCadastroConfirmar.Text)
+                            {
+                                throw new Exception("Senhas não coincidem!");
+                            }
+                        }
+                        break;
+
                 }
-                else
-                {
-                    throw new Exception("E-mail não é valido! Apenas e-mail com domínio (solarbr.com.br)");
-                }
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-
         }
 
-        private void btnCadastroProsseguir2_Click(object sender, EventArgs e)
+        private void PulaPagina()
         {
-            if (Senha==txbCadastroSenhaTemp.Text && txbCadastroSenha.Text!="" && txbCadastroConfirmar.Text != "" && txbCadastroSenha.Text== txbCadastroConfirmar.Text)
-            {
-                txbCadastroTelCorp.Enabled = true;
-                txbCadastroTelCorp.Focus();
-                txbCadastroTelPess.Enabled = true;
-                txbCadastroUnidades.Enabled = true;
-                cbxCadastroIncluir.Enabled = true; 
-                cbxCadastroExcluir.Enabled = true;
-
-                txbCadastroTelCorp.BorderStyle = BorderStyle.Fixed3D;
-                txbCadastroTelPess.BorderStyle = BorderStyle.Fixed3D;
-                txbCadastroUnidades.BorderStyle = BorderStyle.Fixed3D;
-
-                txbCadastroTelCorp.BackColor = System.Drawing.SystemColors.Window;
-                txbCadastroTelPess.BackColor = System.Drawing.SystemColors.Window;
-                txbCadastroUnidades.BackColor = System.Drawing.SystemColors.Window;
-                cbxCadastroIncluir.BackColor = System.Drawing.SystemColors.Window;
-                cbxCadastroExcluir.BackColor = System.Drawing.SystemColors.Window;
-
-                btnCadastroProsseguir1.Enabled = false;
-                btnCadastroCadastrar.Enabled = true;
-            }
-            else
-            {
-
-            }
+            pnlCadastroCentral.Location = new Point(pnlCadastroCentral.Location.X, pnlCadastroCentral.Location.Y - 145);
         }
+
+
     }
 }

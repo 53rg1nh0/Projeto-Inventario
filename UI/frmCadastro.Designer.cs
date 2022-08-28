@@ -37,14 +37,14 @@
             this.ucsCadastro.Location = new System.Drawing.Point(0, 0);
             this.ucsCadastro.Margin = new System.Windows.Forms.Padding(0);
             this.ucsCadastro.Name = "ucsCadastro";
-            this.ucsCadastro.Size = new System.Drawing.Size(380, 416);
+            this.ucsCadastro.Size = new System.Drawing.Size(301, 335);
             this.ucsCadastro.TabIndex = 0;
             // 
             // frmCadastro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(380, 416);
+            this.ClientSize = new System.Drawing.Size(301, 335);
             this.Controls.Add(this.ucsCadastro);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmCadastro";
