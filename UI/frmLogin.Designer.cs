@@ -34,10 +34,9 @@
             // 
             // ucsLogin
             // 
-            this.ucsLogin.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucsLogin.Location = new System.Drawing.Point(0, 0);
+            this.ucsLogin.Location = new System.Drawing.Point(-2, 0);
             this.ucsLogin.Name = "ucsLogin";
-            this.ucsLogin.Size = new System.Drawing.Size(333, 347);
+            this.ucsLogin.Size = new System.Drawing.Size(335, 347);
             this.ucsLogin.TabIndex = 0;
             // 
             // frmLogin

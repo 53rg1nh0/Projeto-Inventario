@@ -23,7 +23,6 @@ namespace UI
         {
             Animacao.Arrastar(this);
             ucsCadastro.cbxCadastroIncluir.DataSource = Unidades;
-            //ucsCadastro.cbxCadastroIncluir.DisplayMember = "Unidade";
             ucsCadastro.cbxCadastroIncluir.ValueMember = "SIGLA";
             ucsCadastro.cbxCadastroIncluir.AutoCompleteSource = AutoCompleteSource.CustomSource;
         }

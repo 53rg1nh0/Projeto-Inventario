@@ -81,9 +81,19 @@ namespace UI
 
         private void lblCadastrar_Click(object sender, EventArgs e)
         {
-            frmCadastro f = new frmCadastro(Tabela.Unidades);
-            frmLogin.ActiveForm.Opacity = 0;
-            f.Show();
+            //frmCadastro f = new frmCadastro(Tabela.Unidades);
+            //f.ShowDialog();
+           
+            btnCadastroVoltar.Visible = true;
+            ucsCadastro.Visible = true;
+        }
+
+        private void btnCadastroVoltar_Click(object sender, EventArgs e)
+        {
+         
+            btnCadastroVoltar.Visible = false;
+            ucsCadastro.Visible = false;
+  
         }
     }
 }

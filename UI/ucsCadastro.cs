@@ -22,11 +22,7 @@ namespace UI
             InitializeComponent();
         }
 
-        private void btnCadastroVoltar_Click(object sender, EventArgs e)
-        {
-            frmCadastro.ActiveForm.Close();
-            frmLogin.ActiveForm.Opacity = 100;
-        }
+       
 
         private void btnCadastroCadastrar_Click(object sender, EventArgs e)
         {
@@ -68,6 +64,8 @@ namespace UI
                             txbCadastroUnidades.Focus();
 
                             lblCadastroTitulo.Text = "              Cadastrar Dados";
+
+                           
                         }
                         else
                         {
@@ -86,6 +84,16 @@ namespace UI
                         }
                         break;
 
+                    case 4:
+                        if (txbCadastroUnidades.Text!="")
+                        {
+                            MessageBox.Show("Cadastro realizado com sucesso!");
+                        }
+                        else
+                        {
+                            throw new Exception("Insira as unidades em que você é o responsavel local.");
+                        }
+                        break;
                 }
 
             }

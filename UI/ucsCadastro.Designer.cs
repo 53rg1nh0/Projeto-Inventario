@@ -31,12 +31,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucsCadastro));
             this.pnlCadastroBack = new System.Windows.Forms.Panel();
             this.pnlCadastroButton = new System.Windows.Forms.Panel();
-            this.btnCadastroVoltar = new System.Windows.Forms.Button();
             this.btnCadastroCadastrar = new System.Windows.Forms.Button();
             this.pnlCadastroTop = new System.Windows.Forms.Panel();
             this.lblCadastroTitulo = new System.Windows.Forms.Label();
             this.pnlCadastroFigura = new System.Windows.Forms.Panel();
             this.pnlCadastroCentral = new System.Windows.Forms.Panel();
+            this.mtbCadastroTelPes = new System.Windows.Forms.MaskedTextBox();
+            this.mtbCadastroTelCorp = new System.Windows.Forms.MaskedTextBox();
             this.txbCadastroUsuario = new System.Windows.Forms.TextBox();
             this.lblCadastroEmail = new System.Windows.Forms.Label();
             this.txbCadastroEmail = new System.Windows.Forms.TextBox();
@@ -51,9 +52,7 @@
             this.lblCadastroExcluir = new System.Windows.Forms.Label();
             this.lblCadastroConfirmar = new System.Windows.Forms.Label();
             this.lblCadastroIncluir = new System.Windows.Forms.Label();
-            this.txbCadastroTelCorp = new System.Windows.Forms.TextBox();
             this.cbxCadastroExcluir = new System.Windows.Forms.ComboBox();
-            this.txbCadastroTelPess = new System.Windows.Forms.TextBox();
             this.cbxCadastroIncluir = new System.Windows.Forms.ComboBox();
             this.lblCadastroTelCorp = new System.Windows.Forms.Label();
             this.lblCadastroUnidades = new System.Windows.Forms.Label();
@@ -79,28 +78,16 @@
             // 
             // pnlCadastroButton
             // 
-            this.pnlCadastroButton.Controls.Add(this.btnCadastroVoltar);
             this.pnlCadastroButton.Controls.Add(this.btnCadastroCadastrar);
             this.pnlCadastroButton.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlCadastroButton.Location = new System.Drawing.Point(0, 704);
+            this.pnlCadastroButton.Location = new System.Drawing.Point(0, 723);
             this.pnlCadastroButton.Name = "pnlCadastroButton";
-            this.pnlCadastroButton.Size = new System.Drawing.Size(292, 67);
+            this.pnlCadastroButton.Size = new System.Drawing.Size(292, 48);
             this.pnlCadastroButton.TabIndex = 31;
-            // 
-            // btnCadastroVoltar
-            // 
-            this.btnCadastroVoltar.Location = new System.Drawing.Point(20, 25);
-            this.btnCadastroVoltar.Name = "btnCadastroVoltar";
-            this.btnCadastroVoltar.Size = new System.Drawing.Size(93, 23);
-            this.btnCadastroVoltar.TabIndex = 3;
-            this.btnCadastroVoltar.Tag = "12";
-            this.btnCadastroVoltar.Text = "Voltar";
-            this.btnCadastroVoltar.UseVisualStyleBackColor = true;
-            this.btnCadastroVoltar.Click += new System.EventHandler(this.btnCadastroVoltar_Click);
             // 
             // btnCadastroCadastrar
             // 
-            this.btnCadastroCadastrar.Location = new System.Drawing.Point(191, 25);
+            this.btnCadastroCadastrar.Location = new System.Drawing.Point(174, 8);
             this.btnCadastroCadastrar.Name = "btnCadastroCadastrar";
             this.btnCadastroCadastrar.Size = new System.Drawing.Size(93, 23);
             this.btnCadastroCadastrar.TabIndex = 4;
@@ -116,7 +103,7 @@
             this.pnlCadastroTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlCadastroTop.Location = new System.Drawing.Point(0, 0);
             this.pnlCadastroTop.Name = "pnlCadastroTop";
-            this.pnlCadastroTop.Size = new System.Drawing.Size(292, 131);
+            this.pnlCadastroTop.Size = new System.Drawing.Size(292, 139);
             this.pnlCadastroTop.TabIndex = 30;
             // 
             // lblCadastroTitulo
@@ -125,7 +112,7 @@
             this.lblCadastroTitulo.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lblCadastroTitulo.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblCadastroTitulo.ForeColor = System.Drawing.SystemColors.Window;
-            this.lblCadastroTitulo.Location = new System.Drawing.Point(0, 106);
+            this.lblCadastroTitulo.Location = new System.Drawing.Point(0, 114);
             this.lblCadastroTitulo.Name = "lblCadastroTitulo";
             this.lblCadastroTitulo.Size = new System.Drawing.Size(213, 25);
             this.lblCadastroTitulo.TabIndex = 1;
@@ -135,13 +122,15 @@
             // pnlCadastroFigura
             // 
             this.pnlCadastroFigura.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlCadastroFigura.BackgroundImage")));
-            this.pnlCadastroFigura.Location = new System.Drawing.Point(93, 9);
+            this.pnlCadastroFigura.Location = new System.Drawing.Point(96, 19);
             this.pnlCadastroFigura.Name = "pnlCadastroFigura";
             this.pnlCadastroFigura.Size = new System.Drawing.Size(100, 100);
             this.pnlCadastroFigura.TabIndex = 0;
             // 
             // pnlCadastroCentral
             // 
+            this.pnlCadastroCentral.Controls.Add(this.mtbCadastroTelPes);
+            this.pnlCadastroCentral.Controls.Add(this.mtbCadastroTelCorp);
             this.pnlCadastroCentral.Controls.Add(this.txbCadastroUsuario);
             this.pnlCadastroCentral.Controls.Add(this.lblCadastroEmail);
             this.pnlCadastroCentral.Controls.Add(this.txbCadastroEmail);
@@ -156,22 +145,36 @@
             this.pnlCadastroCentral.Controls.Add(this.lblCadastroExcluir);
             this.pnlCadastroCentral.Controls.Add(this.lblCadastroConfirmar);
             this.pnlCadastroCentral.Controls.Add(this.lblCadastroIncluir);
-            this.pnlCadastroCentral.Controls.Add(this.txbCadastroTelCorp);
             this.pnlCadastroCentral.Controls.Add(this.cbxCadastroExcluir);
-            this.pnlCadastroCentral.Controls.Add(this.txbCadastroTelPess);
             this.pnlCadastroCentral.Controls.Add(this.cbxCadastroIncluir);
             this.pnlCadastroCentral.Controls.Add(this.lblCadastroTelCorp);
             this.pnlCadastroCentral.Controls.Add(this.lblCadastroUnidades);
             this.pnlCadastroCentral.Controls.Add(this.lblCadastroTelPess);
             this.pnlCadastroCentral.Controls.Add(this.txbCadastroUnidades);
-            this.pnlCadastroCentral.Location = new System.Drawing.Point(29, 130);
+            this.pnlCadastroCentral.Location = new System.Drawing.Point(27, 145);
             this.pnlCadastroCentral.Name = "pnlCadastroCentral";
-            this.pnlCadastroCentral.Size = new System.Drawing.Size(239, 566);
+            this.pnlCadastroCentral.Size = new System.Drawing.Size(239, 580);
             this.pnlCadastroCentral.TabIndex = 32;
+            // 
+            // mtbCadastroTelPes
+            // 
+            this.mtbCadastroTelPes.Location = new System.Drawing.Point(3, 404);
+            this.mtbCadastroTelPes.Mask = "(99) 0 0000-0000";
+            this.mtbCadastroTelPes.Name = "mtbCadastroTelPes";
+            this.mtbCadastroTelPes.Size = new System.Drawing.Size(233, 23);
+            this.mtbCadastroTelPes.TabIndex = 30;
+            // 
+            // mtbCadastroTelCorp
+            // 
+            this.mtbCadastroTelCorp.Location = new System.Drawing.Point(3, 358);
+            this.mtbCadastroTelCorp.Mask = "(99) 0000-0000";
+            this.mtbCadastroTelCorp.Name = "mtbCadastroTelCorp";
+            this.mtbCadastroTelCorp.Size = new System.Drawing.Size(233, 23);
+            this.mtbCadastroTelCorp.TabIndex = 2;
             // 
             // txbCadastroUsuario
             // 
-            this.txbCadastroUsuario.Location = new System.Drawing.Point(3, 27);
+            this.txbCadastroUsuario.Location = new System.Drawing.Point(3, 35);
             this.txbCadastroUsuario.Name = "txbCadastroUsuario";
             this.txbCadastroUsuario.Size = new System.Drawing.Size(233, 23);
             this.txbCadastroUsuario.TabIndex = 1;
@@ -181,7 +184,7 @@
             // 
             this.lblCadastroEmail.AutoSize = true;
             this.lblCadastroEmail.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblCadastroEmail.Location = new System.Drawing.Point(3, 57);
+            this.lblCadastroEmail.Location = new System.Drawing.Point(3, 65);
             this.lblCadastroEmail.Name = "lblCadastroEmail";
             this.lblCadastroEmail.Size = new System.Drawing.Size(41, 15);
             this.lblCadastroEmail.TabIndex = 1;
@@ -189,7 +192,7 @@
             // 
             // txbCadastroEmail
             // 
-            this.txbCadastroEmail.Location = new System.Drawing.Point(3, 76);
+            this.txbCadastroEmail.Location = new System.Drawing.Point(3, 84);
             this.txbCadastroEmail.Name = "txbCadastroEmail";
             this.txbCadastroEmail.Size = new System.Drawing.Size(233, 23);
             this.txbCadastroEmail.TabIndex = 2;
@@ -199,7 +202,7 @@
             // 
             this.lblCadastroMatricula.AutoSize = true;
             this.lblCadastroMatricula.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblCadastroMatricula.Location = new System.Drawing.Point(3, 296);
+            this.lblCadastroMatricula.Location = new System.Drawing.Point(3, 294);
             this.lblCadastroMatricula.Name = "lblCadastroMatricula";
             this.lblCadastroMatricula.Size = new System.Drawing.Size(57, 15);
             this.lblCadastroMatricula.TabIndex = 29;
@@ -209,7 +212,7 @@
             // 
             this.lblCadastroUsuario.AutoSize = true;
             this.lblCadastroUsuario.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblCadastroUsuario.Location = new System.Drawing.Point(3, 9);
+            this.lblCadastroUsuario.Location = new System.Drawing.Point(3, 17);
             this.lblCadastroUsuario.Name = "lblCadastroUsuario";
             this.lblCadastroUsuario.Size = new System.Drawing.Size(47, 15);
             this.lblCadastroUsuario.TabIndex = 3;
@@ -218,7 +221,7 @@
             // txbCadastroMtricula
             // 
             this.txbCadastroMtricula.BackColor = System.Drawing.SystemColors.Window;
-            this.txbCadastroMtricula.Location = new System.Drawing.Point(3, 314);
+            this.txbCadastroMtricula.Location = new System.Drawing.Point(3, 312);
             this.txbCadastroMtricula.Name = "txbCadastroMtricula";
             this.txbCadastroMtricula.Size = new System.Drawing.Size(233, 23);
             this.txbCadastroMtricula.TabIndex = 8;
@@ -227,8 +230,9 @@
             // txbCadastroSenha
             // 
             this.txbCadastroSenha.BackColor = System.Drawing.SystemColors.Window;
-            this.txbCadastroSenha.Location = new System.Drawing.Point(3, 212);
+            this.txbCadastroSenha.Location = new System.Drawing.Point(3, 210);
             this.txbCadastroSenha.Name = "txbCadastroSenha";
+            this.txbCadastroSenha.PasswordChar = '*';
             this.txbCadastroSenha.Size = new System.Drawing.Size(233, 23);
             this.txbCadastroSenha.TabIndex = 6;
             this.txbCadastroSenha.Tag = "4";
@@ -237,7 +241,7 @@
             // 
             this.lblCadastroSenhaTemp.AutoSize = true;
             this.lblCadastroSenhaTemp.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblCadastroSenhaTemp.Location = new System.Drawing.Point(3, 146);
+            this.lblCadastroSenhaTemp.Location = new System.Drawing.Point(3, 144);
             this.lblCadastroSenhaTemp.Name = "lblCadastroSenhaTemp";
             this.lblCadastroSenhaTemp.Size = new System.Drawing.Size(101, 15);
             this.lblCadastroSenhaTemp.TabIndex = 26;
@@ -246,8 +250,9 @@
             // txbCadastroConfirmar
             // 
             this.txbCadastroConfirmar.BackColor = System.Drawing.SystemColors.Window;
-            this.txbCadastroConfirmar.Location = new System.Drawing.Point(3, 261);
+            this.txbCadastroConfirmar.Location = new System.Drawing.Point(3, 259);
             this.txbCadastroConfirmar.Name = "txbCadastroConfirmar";
+            this.txbCadastroConfirmar.PasswordChar = '*';
             this.txbCadastroConfirmar.Size = new System.Drawing.Size(233, 23);
             this.txbCadastroConfirmar.TabIndex = 7;
             this.txbCadastroConfirmar.Tag = "5";
@@ -255,7 +260,7 @@
             // txbCadastroSenhaTemp
             // 
             this.txbCadastroSenhaTemp.BackColor = System.Drawing.SystemColors.Window;
-            this.txbCadastroSenhaTemp.Location = new System.Drawing.Point(3, 163);
+            this.txbCadastroSenhaTemp.Location = new System.Drawing.Point(3, 161);
             this.txbCadastroSenhaTemp.Name = "txbCadastroSenhaTemp";
             this.txbCadastroSenhaTemp.Size = new System.Drawing.Size(233, 23);
             this.txbCadastroSenhaTemp.TabIndex = 5;
@@ -265,7 +270,7 @@
             // 
             this.lblCadastrarSenha.AutoSize = true;
             this.lblCadastrarSenha.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblCadastrarSenha.Location = new System.Drawing.Point(3, 195);
+            this.lblCadastrarSenha.Location = new System.Drawing.Point(3, 193);
             this.lblCadastrarSenha.Name = "lblCadastrarSenha";
             this.lblCadastrarSenha.Size = new System.Drawing.Size(70, 15);
             this.lblCadastrarSenha.TabIndex = 7;
@@ -285,7 +290,7 @@
             // 
             this.lblCadastroConfirmar.AutoSize = true;
             this.lblCadastroConfirmar.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblCadastroConfirmar.Location = new System.Drawing.Point(3, 243);
+            this.lblCadastroConfirmar.Location = new System.Drawing.Point(3, 241);
             this.lblCadastroConfirmar.Name = "lblCadastroConfirmar";
             this.lblCadastroConfirmar.Size = new System.Drawing.Size(96, 15);
             this.lblCadastroConfirmar.TabIndex = 8;
@@ -301,15 +306,6 @@
             this.lblCadastroIncluir.TabIndex = 19;
             this.lblCadastroIncluir.Text = "Incluir";
             // 
-            // txbCadastroTelCorp
-            // 
-            this.txbCadastroTelCorp.BackColor = System.Drawing.SystemColors.Window;
-            this.txbCadastroTelCorp.Location = new System.Drawing.Point(3, 359);
-            this.txbCadastroTelCorp.Name = "txbCadastroTelCorp";
-            this.txbCadastroTelCorp.Size = new System.Drawing.Size(233, 23);
-            this.txbCadastroTelCorp.TabIndex = 9;
-            this.txbCadastroTelCorp.Tag = "7";
-            // 
             // cbxCadastroExcluir
             // 
             this.cbxCadastroExcluir.BackColor = System.Drawing.SystemColors.ScrollBar;
@@ -320,15 +316,6 @@
             this.cbxCadastroExcluir.Size = new System.Drawing.Size(65, 23);
             this.cbxCadastroExcluir.TabIndex = 13;
             this.cbxCadastroExcluir.Tag = "11";
-            // 
-            // txbCadastroTelPess
-            // 
-            this.txbCadastroTelPess.BackColor = System.Drawing.SystemColors.Window;
-            this.txbCadastroTelPess.Location = new System.Drawing.Point(3, 406);
-            this.txbCadastroTelPess.Name = "txbCadastroTelPess";
-            this.txbCadastroTelPess.Size = new System.Drawing.Size(233, 23);
-            this.txbCadastroTelPess.TabIndex = 10;
-            this.txbCadastroTelPess.Tag = "8";
             // 
             // cbxCadastroIncluir
             // 
@@ -352,7 +339,7 @@
             // 
             this.lblCadastroTelCorp.AutoSize = true;
             this.lblCadastroTelCorp.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblCadastroTelCorp.Location = new System.Drawing.Point(3, 342);
+            this.lblCadastroTelCorp.Location = new System.Drawing.Point(3, 340);
             this.lblCadastroTelCorp.Name = "lblCadastroTelCorp";
             this.lblCadastroTelCorp.Size = new System.Drawing.Size(117, 15);
             this.lblCadastroTelCorp.TabIndex = 11;
@@ -372,7 +359,7 @@
             // 
             this.lblCadastroTelPess.AutoSize = true;
             this.lblCadastroTelPess.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblCadastroTelPess.Location = new System.Drawing.Point(3, 388);
+            this.lblCadastroTelPess.Location = new System.Drawing.Point(3, 386);
             this.lblCadastroTelPess.Name = "lblCadastroTelPess";
             this.lblCadastroTelPess.Size = new System.Drawing.Size(93, 15);
             this.lblCadastroTelPess.TabIndex = 12;
@@ -409,7 +396,6 @@
         private Panel pnlCadastroBack;
         private Panel pnlCadastroFigura;
         private Label lblCadastroEmail;
-        private Button btnCadastroVoltar;
         private Button btnCadastroCadastrar;
         private Label lblCadastroExcluir;
         private Label lblCadastroIncluir;
@@ -417,8 +403,6 @@
         private TextBox txbCadastroUnidades;
         private Label lblCadastroTelPess;
         private Label lblCadastroTelCorp;
-        private TextBox txbCadastroTelPess;
-        private TextBox txbCadastroTelCorp;
         private Label lblCadastroConfirmar;
         private Label lblCadastrarSenha;
         private TextBox txbCadastroConfirmar;
@@ -436,5 +420,7 @@
         private Panel pnlCadastroTop;
         private Panel pnlCadastroCentral;
         private Label lblCadastroTitulo;
+        private MaskedTextBox mtbCadastroTelPes;
+        private MaskedTextBox mtbCadastroTelCorp;
     }
 }

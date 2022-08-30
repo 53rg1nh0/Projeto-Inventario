@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucsLogin));
             this.pnlLoginBack = new System.Windows.Forms.Panel();
+            this.btnCadastroVoltar = new System.Windows.Forms.Button();
+            this.ucsCadastro = new UI.ucsCadastro();
             this.btnFechar = new System.Windows.Forms.Button();
             this.lblEditarCadastro = new System.Windows.Forms.Label();
             this.lblCadastrar = new System.Windows.Forms.Label();
@@ -45,6 +47,8 @@
             // pnlLoginBack
             // 
             this.pnlLoginBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(65)))), ((int)(((byte)(81)))));
+            this.pnlLoginBack.Controls.Add(this.btnCadastroVoltar);
+            this.pnlLoginBack.Controls.Add(this.ucsCadastro);
             this.pnlLoginBack.Controls.Add(this.btnFechar);
             this.pnlLoginBack.Controls.Add(this.lblEditarCadastro);
             this.pnlLoginBack.Controls.Add(this.lblCadastrar);
@@ -60,6 +64,26 @@
             this.pnlLoginBack.Name = "pnlLoginBack";
             this.pnlLoginBack.Size = new System.Drawing.Size(336, 344);
             this.pnlLoginBack.TabIndex = 0;
+            // 
+            // btnCadastroVoltar
+            // 
+            this.btnCadastroVoltar.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnCadastroVoltar.Location = new System.Drawing.Point(51, 301);
+            this.btnCadastroVoltar.Name = "btnCadastroVoltar";
+            this.btnCadastroVoltar.Size = new System.Drawing.Size(98, 23);
+            this.btnCadastroVoltar.TabIndex = 14;
+            this.btnCadastroVoltar.Text = "Voltar";
+            this.btnCadastroVoltar.UseVisualStyleBackColor = true;
+            this.btnCadastroVoltar.Visible = false;
+            this.btnCadastroVoltar.Click += new System.EventHandler(this.btnCadastroVoltar_Click);
+            // 
+            // ucsCadastro
+            // 
+            this.ucsCadastro.Location = new System.Drawing.Point(23, 20);
+            this.ucsCadastro.Name = "ucsCadastro";
+            this.ucsCadastro.Size = new System.Drawing.Size(292, 321);
+            this.ucsCadastro.TabIndex = 15;
+            this.ucsCadastro.Visible = false;
             // 
             // btnFechar
             // 
@@ -186,5 +210,7 @@
         public TextBox txbLoginSenhaAntiga;
         public TextBox txbLoginNome;
         public Button btnFechar;
+        private Button btnCadastroVoltar;
+        public ucsCadastro ucsCadastro;
     }
 }
