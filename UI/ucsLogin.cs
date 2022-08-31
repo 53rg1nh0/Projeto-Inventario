@@ -83,17 +83,14 @@ namespace UI
         {
             //frmCadastro f = new frmCadastro(Tabela.Unidades);
             //f.ShowDialog();
-           
-            btnCadastroVoltar.Visible = true;
+            btnVoltar.Visible = true;
             ucsCadastro.Visible = true;
         }
 
-        private void btnCadastroVoltar_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-         
-            btnCadastroVoltar.Visible = false;
             ucsCadastro.Visible = false;
-  
+            btnVoltar.Visible = false;
         }
     }
 }
