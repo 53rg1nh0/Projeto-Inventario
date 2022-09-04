@@ -64,7 +64,7 @@ namespace RelacaoPespUni
             client.Host = "smtp.gmail.com";
             client.Port = 587;
             client.EnableSsl = true;
-            client.Credentials = new System.Net.NetworkCredential("serginhoagostinho@gmail.com", "fiwomfoxiakcjecn");
+            client.Credentials = new System.Net.NetworkCredential("serginhoagostinho@gmail.com", "ojhjaiztpweaxqjt");
             client.DeliveryMethod = SmtpDeliveryMethod.Network;
 
             MailMessage mensagem = new MailMessage();

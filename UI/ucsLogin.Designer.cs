@@ -67,7 +67,7 @@
             // 
             // btnVoltar
             // 
-            this.btnVoltar.Location = new System.Drawing.Point(51, 302);
+            this.btnVoltar.Location = new System.Drawing.Point(34, 302);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Size = new System.Drawing.Size(93, 23);
             this.btnVoltar.TabIndex = 16;
@@ -82,6 +82,7 @@
             this.ucsCadastro.Name = "ucsCadastro";
             this.ucsCadastro.Size = new System.Drawing.Size(292, 321);
             this.ucsCadastro.TabIndex = 15;
+            this.ucsCadastro.Unidades = null;
             this.ucsCadastro.Visible = false;
             // 
             // lblEditarCadastro
