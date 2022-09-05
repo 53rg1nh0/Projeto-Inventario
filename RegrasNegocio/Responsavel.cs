@@ -35,7 +35,7 @@ namespace RelacaoPespUni
             Con = new Conexao();
             DataTable t = new DataTable();
             t = Con.SqlCapturar("SELECT C.MATRICULA AS MATRICULA, C.SIGLA AS SIGLA, C.NOME AS NOME, C.AREA AS AREA, C.CARGO AS CARGO, R.SENHA AS SENHA,R.TELEFONECORPORATIVO AS TELCORP, R.TELEFONEPESSOAL AS TELPESSOAL,R.EMAIL AS EMAIL, R.TIPO AS TIPO FROM CLIENTE C INNER JOIN RESPONSAVEL R ON C.USERID = R.USERID_CLIENTE WHERE C.USERID ='" + userID + "'");
-            if (t.Rows.Count != 0)
+            if (t.Rows.Count != 0 && !ReferenceEquals(t,null))
             {
                 Matricula = Convert.ToInt32(t.Rows[0]["MATRICULA"]);
                 Nome = t.Rows[0]["NOME"].ToString();
@@ -69,11 +69,11 @@ namespace RelacaoPespUni
 
             MailMessage mensagem = new MailMessage();
 
-            mensagem.From = new MailAddress("serginhoagostinho@gmail.com", "INVENTÁRIO TI");
+            mensagem.From = new MailAddress("serginhoagostinho@gmail.com", "INVENTÁRIO TI (Código para auteração de senha)");
             mensagem.To.Add(new MailAddress("serginhoagostinho@gmail.com"));
 
             mensagem.Subject = "Alterar senha Sistema Inventário TI";
-            mensagem.Body = senha;
+            mensagem.Body = "Para verifiar sua identidade, use o código: \n"+senha;
 
             mensagem.IsBodyHtml = true;
 
@@ -84,7 +84,7 @@ namespace RelacaoPespUni
 
         private static void Menssagem()
         {
-            MessageBox.Show("Enviado e-mail com senha temporária para alteração!");
+            MessageBox.Show("Enviado e-mail com código para alteração de senha!");
         }
 
         private static string SenhaTemporaria()

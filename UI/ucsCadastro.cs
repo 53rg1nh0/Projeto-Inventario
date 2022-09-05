@@ -38,6 +38,9 @@ namespace UI
             Regex re = new Regex(exp);
             Regex te = new Regex(tel);
             Regex ma = new Regex(mat);
+            PulaPagina();
+            PulaPagina();
+            PulaPagina();
             try
             {
                 switch (pagina)
@@ -103,6 +106,8 @@ namespace UI
 
                             txbCadastroUnidades.Focus();
 
+                            btnCadastroCadastrar.Text = "Cadastrar";
+
                             lblCadastroTitulo.Text = "           Cadastrar Unidades";
                         }
                         else
@@ -143,6 +148,39 @@ namespace UI
             pnlCadastroCentral.Location = new Point(pnlCadastroCentral.Location.X, pnlCadastroCentral.Location.Y - 145);
         }
 
+        private void btnCadastroIncluir_Click(object sender, EventArgs e)
+        {
+            cbxCadastroExcluir.Items.Add(cbxCadastroIncluir.Text);
+            if (ReferenceEquals(Unidades, null))
+            {
+                Unidades = Tabela.Unidades;
+            }
+            Unidades.Rows.Remove(Unidades.Rows[cbxCadastroIncluir.SelectedIndex]);
+            cbxCadastroIncluir.DataSource = Unidades;
 
+            txbCadastroUnidades.Text=ListaUnidades();
+        }
+
+        private void btnCadastroExcluir_Click(object sender, EventArgs e)
+        {
+            if(cbxCadastroExcluir.Items.Count > 0)
+            {
+                Unidades.Rows.Add(cbxCadastroExcluir.Text);
+                cbxCadastroIncluir.DataSource = Unidades;
+                cbxCadastroExcluir.Items.Remove(cbxCadastroExcluir.Text);
+                txbCadastroUnidades.Text = ListaUnidades();
+            }
+        }
+
+        private string ListaUnidades()
+        {
+            string result = "";
+
+            foreach(Object item in cbxCadastroExcluir.Items)
+            {
+                result += item.ToString() + ", ";
+            }
+            return result;
+        }
     }
 }

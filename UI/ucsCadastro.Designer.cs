@@ -36,6 +36,8 @@
             this.lblCadastroTitulo = new System.Windows.Forms.Label();
             this.pnlCadastroFigura = new System.Windows.Forms.Panel();
             this.pnlCadastroCentral = new System.Windows.Forms.Panel();
+            this.btnCadastroExcluir = new System.Windows.Forms.Button();
+            this.btnCadastroIncluir = new System.Windows.Forms.Button();
             this.mtbCadastroTelPes = new System.Windows.Forms.MaskedTextBox();
             this.mtbCadastroTelCorp = new System.Windows.Forms.MaskedTextBox();
             this.txbCadastroUsuario = new System.Windows.Forms.TextBox();
@@ -129,6 +131,8 @@
             // 
             // pnlCadastroCentral
             // 
+            this.pnlCadastroCentral.Controls.Add(this.btnCadastroExcluir);
+            this.pnlCadastroCentral.Controls.Add(this.btnCadastroIncluir);
             this.pnlCadastroCentral.Controls.Add(this.mtbCadastroTelPes);
             this.pnlCadastroCentral.Controls.Add(this.mtbCadastroTelCorp);
             this.pnlCadastroCentral.Controls.Add(this.txbCadastroUsuario);
@@ -155,6 +159,30 @@
             this.pnlCadastroCentral.Name = "pnlCadastroCentral";
             this.pnlCadastroCentral.Size = new System.Drawing.Size(275, 580);
             this.pnlCadastroCentral.TabIndex = 32;
+            // 
+            // btnCadastroExcluir
+            // 
+            this.btnCadastroExcluir.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCadastroExcluir.BackgroundImage")));
+            this.btnCadastroExcluir.FlatAppearance.BorderSize = 0;
+            this.btnCadastroExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCadastroExcluir.Location = new System.Drawing.Point(158, 497);
+            this.btnCadastroExcluir.Name = "btnCadastroExcluir";
+            this.btnCadastroExcluir.Size = new System.Drawing.Size(40, 40);
+            this.btnCadastroExcluir.TabIndex = 102;
+            this.btnCadastroExcluir.UseVisualStyleBackColor = true;
+            this.btnCadastroExcluir.Click += new System.EventHandler(this.btnCadastroExcluir_Click);
+            // 
+            // btnCadastroIncluir
+            // 
+            this.btnCadastroIncluir.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCadastroIncluir.BackgroundImage")));
+            this.btnCadastroIncluir.FlatAppearance.BorderSize = 0;
+            this.btnCadastroIncluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCadastroIncluir.Location = new System.Drawing.Point(76, 497);
+            this.btnCadastroIncluir.Name = "btnCadastroIncluir";
+            this.btnCadastroIncluir.Size = new System.Drawing.Size(40, 40);
+            this.btnCadastroIncluir.TabIndex = 101;
+            this.btnCadastroIncluir.UseVisualStyleBackColor = true;
+            this.btnCadastroIncluir.Click += new System.EventHandler(this.btnCadastroIncluir_Click);
             // 
             // mtbCadastroTelPes
             // 
@@ -243,9 +271,9 @@
             this.lblCadastroSenhaTemp.ForeColor = System.Drawing.SystemColors.Control;
             this.lblCadastroSenhaTemp.Location = new System.Drawing.Point(3, 150);
             this.lblCadastroSenhaTemp.Name = "lblCadastroSenhaTemp";
-            this.lblCadastroSenhaTemp.Size = new System.Drawing.Size(101, 15);
+            this.lblCadastroSenhaTemp.Size = new System.Drawing.Size(46, 15);
             this.lblCadastroSenhaTemp.TabIndex = 26;
-            this.lblCadastroSenhaTemp.Text = "Senha Temporária";
+            this.lblCadastroSenhaTemp.Text = "Código";
             // 
             // txbCadastroConfirmar
             // 
@@ -280,7 +308,7 @@
             // 
             this.lblCadastroExcluir.AutoSize = true;
             this.lblCadastroExcluir.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblCadastroExcluir.Location = new System.Drawing.Point(204, 510);
+            this.lblCadastroExcluir.Location = new System.Drawing.Point(204, 513);
             this.lblCadastroExcluir.Name = "lblCadastroExcluir";
             this.lblCadastroExcluir.Size = new System.Drawing.Size(42, 15);
             this.lblCadastroExcluir.TabIndex = 20;
@@ -300,7 +328,7 @@
             // 
             this.lblCadastroIncluir.AutoSize = true;
             this.lblCadastroIncluir.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblCadastroIncluir.Location = new System.Drawing.Point(5, 510);
+            this.lblCadastroIncluir.Location = new System.Drawing.Point(5, 513);
             this.lblCadastroIncluir.Name = "lblCadastroIncluir";
             this.lblCadastroIncluir.Size = new System.Drawing.Size(40, 15);
             this.lblCadastroIncluir.TabIndex = 19;
@@ -309,9 +337,9 @@
             // cbxCadastroExcluir
             // 
             this.cbxCadastroExcluir.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.cbxCadastroExcluir.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.cbxCadastroExcluir.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxCadastroExcluir.FormattingEnabled = true;
-            this.cbxCadastroExcluir.Location = new System.Drawing.Point(204, 527);
+            this.cbxCadastroExcluir.Location = new System.Drawing.Point(204, 530);
             this.cbxCadastroExcluir.Name = "cbxCadastroExcluir";
             this.cbxCadastroExcluir.Size = new System.Drawing.Size(65, 23);
             this.cbxCadastroExcluir.TabIndex = 13;
@@ -328,7 +356,7 @@
             this.cbxCadastroIncluir.ImeMode = System.Windows.Forms.ImeMode.Hiragana;
             this.cbxCadastroIncluir.IntegralHeight = false;
             this.cbxCadastroIncluir.ItemHeight = 15;
-            this.cbxCadastroIncluir.Location = new System.Drawing.Point(5, 527);
+            this.cbxCadastroIncluir.Location = new System.Drawing.Point(5, 530);
             this.cbxCadastroIncluir.MaxDropDownItems = 10;
             this.cbxCadastroIncluir.Name = "cbxCadastroIncluir";
             this.cbxCadastroIncluir.Size = new System.Drawing.Size(65, 23);
@@ -349,7 +377,7 @@
             // 
             this.lblCadastroUnidades.AutoSize = true;
             this.lblCadastroUnidades.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblCadastroUnidades.Location = new System.Drawing.Point(3, 461);
+            this.lblCadastroUnidades.Location = new System.Drawing.Point(3, 451);
             this.lblCadastroUnidades.Name = "lblCadastroUnidades";
             this.lblCadastroUnidades.Size = new System.Drawing.Size(56, 15);
             this.lblCadastroUnidades.TabIndex = 16;
@@ -368,7 +396,7 @@
             // txbCadastroUnidades
             // 
             this.txbCadastroUnidades.BackColor = System.Drawing.SystemColors.Window;
-            this.txbCadastroUnidades.Location = new System.Drawing.Point(5, 478);
+            this.txbCadastroUnidades.Location = new System.Drawing.Point(5, 468);
             this.txbCadastroUnidades.Name = "txbCadastroUnidades";
             this.txbCadastroUnidades.ReadOnly = true;
             this.txbCadastroUnidades.Size = new System.Drawing.Size(266, 23);
@@ -423,5 +451,7 @@
         private Label lblCadastroTitulo;
         private MaskedTextBox mtbCadastroTelPes;
         private MaskedTextBox mtbCadastroTelCorp;
+        private Button btnCadastroExcluir;
+        private Button btnCadastroIncluir;
     }
 }
