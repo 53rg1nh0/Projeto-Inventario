@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucsLogin));
             this.pnlLoginBack = new System.Windows.Forms.Panel();
-            this.btnVoltar = new System.Windows.Forms.Button();
             this.ucsCadastro = new UI.ucsCadastro();
             this.lblEditarCadastro = new System.Windows.Forms.Label();
             this.lblCadastrar = new System.Windows.Forms.Label();
@@ -47,7 +46,6 @@
             // pnlLoginBack
             // 
             this.pnlLoginBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(65)))), ((int)(((byte)(81)))));
-            this.pnlLoginBack.Controls.Add(this.btnVoltar);
             this.pnlLoginBack.Controls.Add(this.ucsCadastro);
             this.pnlLoginBack.Controls.Add(this.lblEditarCadastro);
             this.pnlLoginBack.Controls.Add(this.lblCadastrar);
@@ -64,17 +62,6 @@
             this.pnlLoginBack.Name = "pnlLoginBack";
             this.pnlLoginBack.Size = new System.Drawing.Size(336, 344);
             this.pnlLoginBack.TabIndex = 0;
-            // 
-            // btnVoltar
-            // 
-            this.btnVoltar.Location = new System.Drawing.Point(34, 302);
-            this.btnVoltar.Name = "btnVoltar";
-            this.btnVoltar.Size = new System.Drawing.Size(93, 23);
-            this.btnVoltar.TabIndex = 16;
-            this.btnVoltar.Text = "Voltar";
-            this.btnVoltar.UseVisualStyleBackColor = true;
-            this.btnVoltar.Visible = false;
-            this.btnVoltar.Click += new System.EventHandler(this.button1_Click);
             // 
             // ucsCadastro
             // 
@@ -133,7 +120,6 @@
             // 
             // btnNext
             // 
-            this.btnNext.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnNext.BackgroundImage")));
             this.btnNext.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnNext.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnNext.FlatAppearance.BorderSize = 0;
@@ -211,6 +197,5 @@
         public TextBox txbLoginNome;
         public Button btnFechar;
         public ucsCadastro ucsCadastro;
-        private Button btnVoltar;
     }
 }

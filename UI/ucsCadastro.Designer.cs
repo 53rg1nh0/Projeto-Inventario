@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucsCadastro));
             this.pnlCadastroBack = new System.Windows.Forms.Panel();
             this.pnlCadastroButton = new System.Windows.Forms.Panel();
+            this.btnCadastroVolta = new System.Windows.Forms.Button();
             this.btnCadastroCadastrar = new System.Windows.Forms.Button();
             this.pnlCadastroTop = new System.Windows.Forms.Panel();
             this.lblCadastroTitulo = new System.Windows.Forms.Label();
@@ -80,12 +81,24 @@
             // 
             // pnlCadastroButton
             // 
+            this.pnlCadastroButton.Controls.Add(this.btnCadastroVolta);
             this.pnlCadastroButton.Controls.Add(this.btnCadastroCadastrar);
             this.pnlCadastroButton.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlCadastroButton.Location = new System.Drawing.Point(0, 723);
             this.pnlCadastroButton.Name = "pnlCadastroButton";
             this.pnlCadastroButton.Size = new System.Drawing.Size(292, 48);
             this.pnlCadastroButton.TabIndex = 31;
+            // 
+            // btnCadastroVolta
+            // 
+            this.btnCadastroVolta.Location = new System.Drawing.Point(14, 9);
+            this.btnCadastroVolta.Name = "btnCadastroVolta";
+            this.btnCadastroVolta.Size = new System.Drawing.Size(93, 23);
+            this.btnCadastroVolta.TabIndex = 5;
+            this.btnCadastroVolta.Tag = "14";
+            this.btnCadastroVolta.Text = "Voltar";
+            this.btnCadastroVolta.UseVisualStyleBackColor = true;
+            this.btnCadastroVolta.Click += new System.EventHandler(this.btnCadastroVolta_Click);
             // 
             // btnCadastroCadastrar
             // 
@@ -453,5 +466,6 @@
         private MaskedTextBox mtbCadastroTelCorp;
         private Button btnCadastroExcluir;
         private Button btnCadastroIncluir;
+        private Button btnCadastroVolta;
     }
 }

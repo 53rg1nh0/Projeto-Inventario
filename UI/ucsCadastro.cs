@@ -145,7 +145,7 @@ namespace UI
 
         private void PulaPagina()
         {
-            pnlCadastroCentral.Location = new Point(pnlCadastroCentral.Location.X, pnlCadastroCentral.Location.Y - 145);
+            pnlCadastroCentral.Location = new Point(pnlCadastroCentral.Location.X, pnlCadastroCentral.Location.Y - 37);
         }
 
         private void btnCadastroIncluir_Click(object sender, EventArgs e)
@@ -181,6 +181,11 @@ namespace UI
                 result += item.ToString() + ", ";
             }
             return result;
+        }
+
+        private void btnCadastroVolta_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
         }
     }
 }
