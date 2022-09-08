@@ -98,6 +98,21 @@ namespace RelacaoPespUni
             }
             return pass;
         }
+
+        public void IncerirNoBanco()
+        {
+            Cliente c = new Cliente(UserId);
+            DataTable t = new DataTable();
+            t = Con.SqlCapturar("SELECT C.MATRICULA AS MATRICULA, C.SIGLA AS SIGLA, C.NOME AS NOME, C.AREA AS AREA, C.CARGO AS CARGO, R.SENHA AS SENHA,R.TELEFONECORPORATIVO AS TELCORP, R.TELEFONEPESSOAL AS TELPESSOAL,R.EMAIL AS EMAIL, R.TIPO AS TIPO FROM CLIENTE C INNER JOIN RESPONSAVEL R ON C.USERID = R.USERID_CLIENTE WHERE C.USERID ='" + UserId + "'");
+            if (ReferenceEquals(t, null))
+            {
+
+            }
+            else
+            {
+                throw new Exception("Resposnável já está cadastrado!");
+            }
+        }
         //propriedade movimentação
     }
 }

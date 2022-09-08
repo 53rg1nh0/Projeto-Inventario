@@ -8,25 +8,24 @@ namespace UI
     {
         public FrmInventario()
         {
-            InitializeComponent();
-
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
+            Tabela.AtualizarUnidades();
             try
             {
-                Tabela.AtualizarUnidades();
-                uscAjuste.uscCrudUnidades.dgvAlterarUnidade.DataSource = Tabela.Unidades; 
+                
                 frmLogin f = new frmLogin();
-                f.ShowDialog(); 
+                f.ShowDialog();
             }
             catch (ExcessaoBanco ex)
             {
                 MessageBox.Show(ex.Message, "Erro de conexão!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Application.Exit();
             }
+            InitializeComponent();
+            
+            uscAjuste.uscCrudUnidades.dgvAlterarUnidade.DataSource = Tabela.Unidades;
         }
+
+       
 
         private void Paineis(bool cl, bool eq)
         {

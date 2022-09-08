@@ -510,7 +510,6 @@
             this.MinimumSize = new System.Drawing.Size(1200, 478);
             this.Name = "FrmInventario";
             this.Text = "Inventário TI";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.pnlNavegacaoBack.ResumeLayout(false);
             this.pnlNavegacao.ResumeLayout(false);
             this.pnlEquipamento.ResumeLayout(false);

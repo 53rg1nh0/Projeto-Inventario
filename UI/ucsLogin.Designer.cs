@@ -65,7 +65,7 @@
             // 
             // ucsCadastro
             // 
-            this.ucsCadastro.Location = new System.Drawing.Point(22, 21);
+            this.ucsCadastro.Location = new System.Drawing.Point(22, 22);
             this.ucsCadastro.Name = "ucsCadastro";
             this.ucsCadastro.Size = new System.Drawing.Size(292, 321);
             this.ucsCadastro.TabIndex = 15;
@@ -124,9 +124,10 @@
             this.btnNext.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnNext.FlatAppearance.BorderSize = 0;
             this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNext.Location = new System.Drawing.Point(269, 276);
+            this.btnNext.Image = ((System.Drawing.Image)(resources.GetObject("btnNext.Image")));
+            this.btnNext.Location = new System.Drawing.Point(261, 276);
             this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(40, 40);
+            this.btnNext.Size = new System.Drawing.Size(49, 40);
             this.btnNext.TabIndex = 5;
             this.btnNext.UseVisualStyleBackColor = true;
             // 
