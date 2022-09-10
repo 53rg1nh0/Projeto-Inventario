@@ -38,9 +38,6 @@ namespace UI
             Regex re = new Regex(exp);
             Regex te = new Regex(tel);
             Regex ma = new Regex(mat);
-            PulaPagina();
-            PulaPagina();
-            PulaPagina();
             try
             {
                 switch (pagina)
@@ -127,7 +124,27 @@ namespace UI
                     case 4:
                         if (txbCadastroUnidades.Text != "")
                         {
+                            Responsavel r = new Responsavel(mtbCadastroTelCorp.Text, mtbCadastroTelPes.Text, txbCadastroEmail.Text, txbCadastroUsuario.Text, txbCadastroSenha.Text);
+                            r.IncerirNoBanco();
                             MessageBox.Show("Cadastro realizado com sucesso!");
+
+                            txbCadastroUsuario.Text = "";
+                            txbCadastroEmail.Text = "";
+                            txbCadastroSenhaTemp.Text = "";
+                            txbCadastroSenha.Text = "";
+                            txbCadastroConfirmar.Text = "";
+                            txbCadastroMtricula.Text = "";
+                            mtbCadastroTelCorp.Text = "";
+                            mtbCadastroTelPes.Text = "";
+                            txbCadastroUnidades.Text = "";
+
+                            foreach(Object item in cbxCadastroExcluir.Items)
+                            {
+                                Unidades.Rows.Add(item.ToString());                             
+                            }
+                            cbxCadastroExcluir.Items.Clear();
+                            pnlCadastroCentral.Location = new Point(pnlCadastroCentral.Location.X, pnlCadastroCentral.Location.Y + 447);
+                            Visible = false;
                         }
                         else
                         {
@@ -145,7 +162,7 @@ namespace UI
 
         private void PulaPagina()
         {
-            pnlCadastroCentral.Location = new Point(pnlCadastroCentral.Location.X, pnlCadastroCentral.Location.Y - 37);
+            pnlCadastroCentral.Location = new Point(pnlCadastroCentral.Location.X, pnlCadastroCentral.Location.Y - 149);
         }
 
         private void btnCadastroIncluir_Click(object sender, EventArgs e)

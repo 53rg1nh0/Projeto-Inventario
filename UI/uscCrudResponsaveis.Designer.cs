@@ -222,8 +222,8 @@
             this.cbbTipoUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cbbTipoUsuario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbTipoUsuario.Items.AddRange(new object[] {
-            "admin",
-            "comum"});
+            "adm",
+            "std"});
             this.cbbTipoUsuario.Location = new System.Drawing.Point(1069, 3);
             this.cbbTipoUsuario.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
             this.cbbTipoUsuario.Name = "cbbTipoUsuario";

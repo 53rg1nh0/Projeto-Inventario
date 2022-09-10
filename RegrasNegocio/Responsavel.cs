@@ -6,6 +6,7 @@ using System.Data;
 using System.Net.Mail;
 using System.Threading;
 using System.Windows;
+using System.Drawing;
 
 namespace RelacaoPespUni
 {
@@ -16,26 +17,27 @@ namespace RelacaoPespUni
         public string Email { get; set; }
         public string Senha { get; set; }
         public string Tipo { get; set; }
-        public Conexao Con { get; set; }
+        public Conexao Con { get; private set; }
 
         //construtor
-        public Responsavel(string telefoneCorporativo, string telefonePessoal, string email, string userId, string senha, string tipo)
+        public Responsavel(string telefoneCorporativo, string telefonePessoal, string email, string userId, string senha)
         {
             TelefoneCorporativo = telefoneCorporativo;
             TelefonePessoal = telefonePessoal;
             Email = email;
             UserId = userId;
             Senha = senha;
-            Tipo = tipo;
+            Tipo = "std";
             Con = new Conexao();
         }
 
         public Responsavel(string userID)
+
         {
             Con = new Conexao();
             DataTable t = new DataTable();
             t = Con.SqlCapturar("SELECT C.MATRICULA AS MATRICULA, C.SIGLA AS SIGLA, C.NOME AS NOME, C.AREA AS AREA, C.CARGO AS CARGO, R.SENHA AS SENHA,R.TELEFONECORPORATIVO AS TELCORP, R.TELEFONEPESSOAL AS TELPESSOAL,R.EMAIL AS EMAIL, R.TIPO AS TIPO FROM CLIENTE C INNER JOIN RESPONSAVEL R ON C.USERID = R.USERID_CLIENTE WHERE C.USERID ='" + userID + "'");
-            if (t.Rows.Count != 0 && !ReferenceEquals(t,null))
+            if (t.Rows.Count != 0 && !ReferenceEquals(t, null))
             {
                 Matricula = Convert.ToInt32(t.Rows[0]["MATRICULA"]);
                 Nome = t.Rows[0]["NOME"].ToString();
@@ -46,19 +48,20 @@ namespace RelacaoPespUni
 
                 Senha = t.Rows[0]["SENHA"].ToString();
                 TelefoneCorporativo = t.Rows[0]["TELCORP"].ToString();
-                TelefonePessoal= t.Rows[0]["TELPESSOAL"].ToString();
-                Email = t.Rows[0]["EMAIL"].ToString(); 
+                TelefonePessoal = t.Rows[0]["TELPESSOAL"].ToString();
+                Email = t.Rows[0]["EMAIL"].ToString();
                 Tipo = t.Rows[0]["TIPO"].ToString();
             }
             else
             {
                 throw new ExcessaoRegraNegocio("Usuário ou senha imcorretos!");
             }
+
         }
 
         public static string Autenticar(string email)
         {
-            string senha=SenhaTemporaria();
+            string senha = SenhaTemporaria();
             new Thread(Menssagem).Start();
             SmtpClient client = new SmtpClient();
             client.Host = "smtp.gmail.com";
@@ -73,7 +76,7 @@ namespace RelacaoPespUni
             mensagem.To.Add(new MailAddress("serginhoagostinho@gmail.com"));
 
             mensagem.Subject = "Alterar senha Sistema Inventário TI";
-            mensagem.Body = "Para verifiar sua identidade, use o código: \n"+senha;
+            mensagem.Body = "Para verifiar sua identidade, use o código: \n" + senha;
 
             mensagem.IsBodyHtml = true;
 
@@ -101,17 +104,16 @@ namespace RelacaoPespUni
 
         public void IncerirNoBanco()
         {
-            Cliente c = new Cliente(UserId);
-            DataTable t = new DataTable();
-            t = Con.SqlCapturar("SELECT C.MATRICULA AS MATRICULA, C.SIGLA AS SIGLA, C.NOME AS NOME, C.AREA AS AREA, C.CARGO AS CARGO, R.SENHA AS SENHA,R.TELEFONECORPORATIVO AS TELCORP, R.TELEFONEPESSOAL AS TELPESSOAL,R.EMAIL AS EMAIL, R.TIPO AS TIPO FROM CLIENTE C INNER JOIN RESPONSAVEL R ON C.USERID = R.USERID_CLIENTE WHERE C.USERID ='" + UserId + "'");
-            if (ReferenceEquals(t, null))
+            try
             {
+                Con.SqlInserir("INSERT INTO RESPONSAVEL (USERID_CLIENTE, TELEFONECORPORATIVO, TELEFONEPESSOAL,EMAIL,TIPO,SENHA) VALUES ('" + UserId + "', '" + TelefoneCorporativo + "', '" + TelefonePessoal + "', '" + Email + "', '" + Tipo + "', '" + Senha + "')");
+                Tabela.AtualizarResponsaveis();
+            }
+            catch
+            {
+                throw new Exception("Cadastro não foi bem sucedido, pois responsável já está cadastrado!");
+            }
 
-            }
-            else
-            {
-                throw new Exception("Resposnável já está cadastrado!");
-            }
         }
         //propriedade movimentação
     }
