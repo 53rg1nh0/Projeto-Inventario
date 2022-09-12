@@ -44,18 +44,18 @@
             this.pnlAdminstrador.Controls.Add(this.lblAdminstradorInformacao);
             this.pnlAdminstrador.Controls.Add(this.pictureBox1);
             this.pnlAdminstrador.Controls.Add(this.ptbAdminstrador);
-            this.pnlAdminstrador.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlAdminstrador.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlAdminstrador.Location = new System.Drawing.Point(0, 0);
             this.pnlAdminstrador.Margin = new System.Windows.Forms.Padding(0);
             this.pnlAdminstrador.Name = "pnlAdminstrador";
-            this.pnlAdminstrador.Size = new System.Drawing.Size(870, 82);
+            this.pnlAdminstrador.Size = new System.Drawing.Size(870, 62);
             this.pnlAdminstrador.TabIndex = 0;
             // 
             // lblAdminstradorInformacao
             // 
             this.lblAdminstradorInformacao.AutoSize = true;
             this.lblAdminstradorInformacao.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblAdminstradorInformacao.Location = new System.Drawing.Point(84, 9);
+            this.lblAdminstradorInformacao.Location = new System.Drawing.Point(84, 3);
             this.lblAdminstradorInformacao.Name = "lblAdminstradorInformacao";
             this.lblAdminstradorInformacao.Size = new System.Drawing.Size(253, 65);
             this.lblAdminstradorInformacao.TabIndex = 2;
@@ -69,10 +69,10 @@
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(675, 10);
+            this.pictureBox1.Location = new System.Drawing.Point(680, 5);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(10);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(185, 62);
+            this.pictureBox1.Size = new System.Drawing.Size(185, 52);
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
@@ -82,10 +82,10 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.ptbAdminstrador.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ptbAdminstrador.BackgroundImage")));
             this.ptbAdminstrador.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ptbAdminstrador.Location = new System.Drawing.Point(10, 10);
+            this.ptbAdminstrador.Location = new System.Drawing.Point(10, 1);
             this.ptbAdminstrador.Margin = new System.Windows.Forms.Padding(10);
             this.ptbAdminstrador.Name = "ptbAdminstrador";
-            this.ptbAdminstrador.Size = new System.Drawing.Size(70, 62);
+            this.ptbAdminstrador.Size = new System.Drawing.Size(70, 61);
             this.ptbAdminstrador.TabIndex = 0;
             this.ptbAdminstrador.TabStop = false;
             // 
@@ -95,7 +95,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.pnlAdminstrador);
             this.Name = "Adminstrador";
-            this.Size = new System.Drawing.Size(870, 82);
+            this.Size = new System.Drawing.Size(870, 341);
             this.pnlAdminstrador.ResumeLayout(false);
             this.pnlAdminstrador.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -105,10 +105,9 @@
         }
 
         #endregion
-
-        private Panel pnlAdminstrador;
         private PictureBox ptbAdminstrador;
         private PictureBox pictureBox1;
-        private Label lblAdminstradorInformacao;
+        public Panel pnlAdminstrador;
+        public Label lblAdminstradorInformacao;
     }
 }

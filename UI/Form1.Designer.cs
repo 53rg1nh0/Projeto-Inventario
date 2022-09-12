@@ -34,24 +34,27 @@
             this.btnAjustes = new System.Windows.Forms.Button();
             this.pnlDivisao2 = new System.Windows.Forms.Panel();
             this.btnSobre = new System.Windows.Forms.Button();
+            this.pnlDivisao3 = new System.Windows.Forms.Panel();
             this.pnlEquipamento = new System.Windows.Forms.Panel();
             this.btnObsoleto = new System.Windows.Forms.Button();
             this.btnManutencao = new System.Windows.Forms.Button();
             this.btnAdicionar = new System.Windows.Forms.Button();
-            this.pnlDivisao3 = new System.Windows.Forms.Panel();
             this.btnEquipamento = new System.Windows.Forms.Button();
-            this.pnlDifizao1 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.pnlCliente = new System.Windows.Forms.Panel();
             this.btnNovato = new System.Windows.Forms.Button();
             this.btnCliente = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.btnHome = new System.Windows.Forms.Button();
             this.pnlLogo = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlTopLogo = new System.Windows.Forms.Panel();
             this.pnlLogoSolar = new System.Windows.Forms.Panel();
             this.ptbLogo = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.pnlBackgrund = new System.Windows.Forms.Panel();
             this.pnlBack = new System.Windows.Forms.Panel();
-            this.uscSobre = new UI.ucsSobre();
             this.uscHome = new UI.Home();
+            this.uscSobre = new UI.ucsSobre();
             this.uscAjuste = new UI.Ajustes();
             this.pnlInformacao = new System.Windows.Forms.Panel();
             this.tlpLegenda = new System.Windows.Forms.TableLayoutPanel();
@@ -60,18 +63,17 @@
             this.lblTotal = new System.Windows.Forms.Label();
             this.lblInconcistencias = new System.Windows.Forms.Label();
             this.lblBackupsDesktop = new System.Windows.Forms.Label();
-            this.pnlTopLogo = new System.Windows.Forms.Panel();
             this.pnlNavegacaoBack.SuspendLayout();
             this.pnlNavegacao.SuspendLayout();
             this.pnlEquipamento.SuspendLayout();
             this.pnlCliente.SuspendLayout();
             this.pnlLogo.SuspendLayout();
+            this.pnlTopLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbLogo)).BeginInit();
             this.pnlBackgrund.SuspendLayout();
             this.pnlBack.SuspendLayout();
             this.pnlInformacao.SuspendLayout();
             this.tlpLegenda.SuspendLayout();
-            this.pnlTopLogo.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlNavegacaoBack
@@ -93,12 +95,14 @@
             this.pnlNavegacao.Controls.Add(this.btnAjustes);
             this.pnlNavegacao.Controls.Add(this.pnlDivisao2);
             this.pnlNavegacao.Controls.Add(this.btnSobre);
-            this.pnlNavegacao.Controls.Add(this.pnlEquipamento);
             this.pnlNavegacao.Controls.Add(this.pnlDivisao3);
+            this.pnlNavegacao.Controls.Add(this.pnlEquipamento);
             this.pnlNavegacao.Controls.Add(this.btnEquipamento);
-            this.pnlNavegacao.Controls.Add(this.pnlDifizao1);
+            this.pnlNavegacao.Controls.Add(this.panel4);
             this.pnlNavegacao.Controls.Add(this.pnlCliente);
             this.pnlNavegacao.Controls.Add(this.btnCliente);
+            this.pnlNavegacao.Controls.Add(this.panel3);
+            this.pnlNavegacao.Controls.Add(this.btnHome);
             this.pnlNavegacao.Controls.Add(this.pnlLogo);
             this.pnlNavegacao.Location = new System.Drawing.Point(0, 0);
             this.pnlNavegacao.Margin = new System.Windows.Forms.Padding(0);
@@ -156,6 +160,14 @@
             this.btnSobre.UseVisualStyleBackColor = true;
             this.btnSobre.Click += new System.EventHandler(this.btnSobre_Click);
             // 
+            // pnlDivisao3
+            // 
+            this.pnlDivisao3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlDivisao3.Location = new System.Drawing.Point(0, 398);
+            this.pnlDivisao3.Name = "pnlDivisao3";
+            this.pnlDivisao3.Size = new System.Drawing.Size(180, 14);
+            this.pnlDivisao3.TabIndex = 12;
+            // 
             // pnlEquipamento
             // 
             this.pnlEquipamento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(85)))), ((int)(((byte)(101)))));
@@ -163,7 +175,7 @@
             this.pnlEquipamento.Controls.Add(this.btnManutencao);
             this.pnlEquipamento.Controls.Add(this.btnAdicionar);
             this.pnlEquipamento.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlEquipamento.Location = new System.Drawing.Point(0, 247);
+            this.pnlEquipamento.Location = new System.Drawing.Point(0, 314);
             this.pnlEquipamento.Name = "pnlEquipamento";
             this.pnlEquipamento.Size = new System.Drawing.Size(180, 109);
             this.pnlEquipamento.TabIndex = 11;
@@ -226,14 +238,6 @@
             this.btnAdicionar.Text = "          Adicionar";
             this.btnAdicionar.UseVisualStyleBackColor = true;
             // 
-            // pnlDivisao3
-            // 
-            this.pnlDivisao3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlDivisao3.Location = new System.Drawing.Point(0, 398);
-            this.pnlDivisao3.Name = "pnlDivisao3";
-            this.pnlDivisao3.Size = new System.Drawing.Size(180, 14);
-            this.pnlDivisao3.TabIndex = 12;
-            // 
             // btnEquipamento
             // 
             this.btnEquipamento.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -244,7 +248,7 @@
             this.btnEquipamento.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnEquipamento.Image = ((System.Drawing.Image)(resources.GetObject("btnEquipamento.Image")));
             this.btnEquipamento.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEquipamento.Location = new System.Drawing.Point(0, 194);
+            this.btnEquipamento.Location = new System.Drawing.Point(0, 261);
             this.btnEquipamento.Margin = new System.Windows.Forms.Padding(0);
             this.btnEquipamento.Name = "btnEquipamento";
             this.btnEquipamento.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
@@ -255,20 +259,20 @@
             this.btnEquipamento.UseVisualStyleBackColor = true;
             this.btnEquipamento.Click += new System.EventHandler(this.btnEquipamento_Click);
             // 
-            // pnlDifizao1
+            // panel4
             // 
-            this.pnlDifizao1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlDifizao1.Location = new System.Drawing.Point(0, 180);
-            this.pnlDifizao1.Name = "pnlDifizao1";
-            this.pnlDifizao1.Size = new System.Drawing.Size(180, 14);
-            this.pnlDifizao1.TabIndex = 1;
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel4.Location = new System.Drawing.Point(0, 247);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(180, 14);
+            this.panel4.TabIndex = 11;
             // 
             // pnlCliente
             // 
             this.pnlCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(85)))), ((int)(((byte)(101)))));
             this.pnlCliente.Controls.Add(this.btnNovato);
             this.pnlCliente.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlCliente.Location = new System.Drawing.Point(0, 133);
+            this.pnlCliente.Location = new System.Drawing.Point(0, 200);
             this.pnlCliente.Name = "pnlCliente";
             this.pnlCliente.Size = new System.Drawing.Size(180, 47);
             this.pnlCliente.TabIndex = 9;
@@ -304,7 +308,7 @@
             this.btnCliente.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnCliente.Image = ((System.Drawing.Image)(resources.GetObject("btnCliente.Image")));
             this.btnCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCliente.Location = new System.Drawing.Point(0, 80);
+            this.btnCliente.Location = new System.Drawing.Point(0, 147);
             this.btnCliente.Margin = new System.Windows.Forms.Padding(0);
             this.btnCliente.Name = "btnCliente";
             this.btnCliente.Size = new System.Drawing.Size(180, 53);
@@ -313,6 +317,35 @@
             this.btnCliente.Text = "          Cliente";
             this.btnCliente.UseVisualStyleBackColor = true;
             this.btnCliente.Click += new System.EventHandler(this.btnCliente_Click);
+            // 
+            // panel3
+            // 
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 133);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(180, 14);
+            this.panel3.TabIndex = 10;
+            // 
+            // btnHome
+            // 
+            this.btnHome.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnHome.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnHome.FlatAppearance.BorderSize = 0;
+            this.btnHome.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(135)))), ((int)(((byte)(161)))));
+            this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHome.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnHome.Image = ((System.Drawing.Image)(resources.GetObject("btnHome.Image")));
+            this.btnHome.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHome.Location = new System.Drawing.Point(0, 80);
+            this.btnHome.Margin = new System.Windows.Forms.Padding(0);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btnHome.Size = new System.Drawing.Size(180, 53);
+            this.btnHome.TabIndex = 9;
+            this.btnHome.TabStop = false;
+            this.btnHome.Text = "         Início";
+            this.btnHome.UseVisualStyleBackColor = true;
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
             // pnlLogo
             // 
@@ -327,14 +360,17 @@
             this.pnlLogo.Size = new System.Drawing.Size(180, 80);
             this.pnlLogo.TabIndex = 7;
             // 
-            // panel1
+            // pnlTopLogo
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(65)))), ((int)(((byte)(81)))));
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 66);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(180, 14);
-            this.panel1.TabIndex = 2;
+            this.pnlTopLogo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlTopLogo.Controls.Add(this.pnlLogoSolar);
+            this.pnlTopLogo.Controls.Add(this.ptbLogo);
+            this.pnlTopLogo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlTopLogo.Location = new System.Drawing.Point(0, 0);
+            this.pnlTopLogo.Margin = new System.Windows.Forms.Padding(0);
+            this.pnlTopLogo.Name = "pnlTopLogo";
+            this.pnlTopLogo.Size = new System.Drawing.Size(180, 66);
+            this.pnlTopLogo.TabIndex = 3;
             // 
             // pnlLogoSolar
             // 
@@ -359,6 +395,15 @@
             this.ptbLogo.TabStop = false;
             this.ptbLogo.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(65)))), ((int)(((byte)(81)))));
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 66);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(180, 14);
+            this.panel1.TabIndex = 2;
+            // 
             // pnlBackgrund
             // 
             this.pnlBackgrund.Controls.Add(this.pnlBack);
@@ -373,8 +418,8 @@
             // 
             // pnlBack
             // 
-            this.pnlBack.Controls.Add(this.uscSobre);
             this.pnlBack.Controls.Add(this.uscHome);
+            this.pnlBack.Controls.Add(this.uscSobre);
             this.pnlBack.Controls.Add(this.uscAjuste);
             this.pnlBack.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlBack.Location = new System.Drawing.Point(180, 0);
@@ -382,19 +427,19 @@
             this.pnlBack.Size = new System.Drawing.Size(1004, 412);
             this.pnlBack.TabIndex = 4;
             // 
+            // uscHome
+            // 
+            this.uscHome.Location = new System.Drawing.Point(212, 26);
+            this.uscHome.Name = "uscHome";
+            this.uscHome.Size = new System.Drawing.Size(118, 92);
+            this.uscHome.TabIndex = 3;
+            // 
             // uscSobre
             // 
-            this.uscSobre.Location = new System.Drawing.Point(369, 26);
+            this.uscSobre.Location = new System.Drawing.Point(362, 26);
             this.uscSobre.Name = "uscSobre";
             this.uscSobre.Size = new System.Drawing.Size(131, 92);
             this.uscSobre.TabIndex = 2;
-            // 
-            // uscHome
-            // 
-            this.uscHome.Location = new System.Drawing.Point(203, 26);
-            this.uscHome.Name = "uscHome";
-            this.uscHome.Size = new System.Drawing.Size(134, 112);
-            this.uscHome.TabIndex = 1;
             // 
             // uscAjuste
             // 
@@ -487,18 +532,6 @@
             this.lblBackupsDesktop.TabIndex = 6;
             this.lblBackupsDesktop.Text = "Backups Notebooks:";
             // 
-            // pnlTopLogo
-            // 
-            this.pnlTopLogo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlTopLogo.Controls.Add(this.pnlLogoSolar);
-            this.pnlTopLogo.Controls.Add(this.ptbLogo);
-            this.pnlTopLogo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlTopLogo.Location = new System.Drawing.Point(0, 0);
-            this.pnlTopLogo.Margin = new System.Windows.Forms.Padding(0);
-            this.pnlTopLogo.Name = "pnlTopLogo";
-            this.pnlTopLogo.Size = new System.Drawing.Size(180, 66);
-            this.pnlTopLogo.TabIndex = 3;
-            // 
             // FrmInventario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -508,20 +541,19 @@
             this.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1200, 478);
-            this.Name = "FrmInventario";
             this.Text = "Inventário TI";
             this.pnlNavegacaoBack.ResumeLayout(false);
             this.pnlNavegacao.ResumeLayout(false);
             this.pnlEquipamento.ResumeLayout(false);
             this.pnlCliente.ResumeLayout(false);
             this.pnlLogo.ResumeLayout(false);
+            this.pnlTopLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ptbLogo)).EndInit();
             this.pnlBackgrund.ResumeLayout(false);
             this.pnlBack.ResumeLayout(false);
             this.pnlInformacao.ResumeLayout(false);
             this.tlpLegenda.ResumeLayout(false);
             this.tlpLegenda.PerformLayout();
-            this.pnlTopLogo.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -538,7 +570,6 @@
         public Button btnAdicionar;
         private Panel pnlDivisao3;
         public Button btnEquipamento;
-        private Panel pnlDifizao1;
         private Panel pnlCliente;
         public Button btnNovato;
         public Button btnCliente;
@@ -553,11 +584,14 @@
         private Label lblUnidade;
         private TableLayoutPanel tlpLegenda;
         private Ajustes uscAjuste;
-        private Home uscHome;
         private PictureBox ptbLogo;
         private Panel pnlLogoSolar;
         private ucsSobre uscSobre;
         private Panel panel1;
         private Panel pnlTopLogo;
+        private Panel panel4;
+        private Panel panel3;
+        public Button btnHome;
+        public Home uscHome;
     }
 }

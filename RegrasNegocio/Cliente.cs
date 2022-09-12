@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace RelacaoPespUni
 {
@@ -22,23 +23,30 @@ namespace RelacaoPespUni
 
         public Cliente(string userId)
         {
-            Con = new Conexao();
-            DataTable t = new DataTable();
-
-            t = Con.SqlCapturar("SELECT MATRICULA, NOME, AREA, CARGO, SIGLA FROM CLIENTE WHERE USERID = '" + userId + "'");
-
-            try 
-            { 
-                Nome = t.Rows[0]["NOME"].ToString();
-                UserId = userId;
-                Matricula = Convert.ToInt32(t.Rows[0]["MATRICULA"]);
-                Area = t.Rows[0]["AREA"].ToString();
-                Cargo = t.Rows[0]["CARGO"].ToString();
-                Unidade = new Unidade(t.Rows[0]["SIGLA"].ToString());
-            }
-            catch
+            try
             {
-                throw new ExcessaoRegraNegocio("Usuário inexisente!");
+                Con = new Conexao();
+                DataTable t = new DataTable();
+
+                t = Con.SqlCapturar("SELECT MATRICULA, NOME, AREA, CARGO, SIGLA FROM CLIENTE WHERE USERID = '" + userId + "'");
+
+                try
+                {
+                    Nome = t.Rows[0]["NOME"].ToString();
+                    UserId = userId;
+                    Matricula = Convert.ToInt32(t.Rows[0]["MATRICULA"]);
+                    Area = t.Rows[0]["AREA"].ToString();
+                    Cargo = t.Rows[0]["CARGO"].ToString();
+                    Unidade = new Unidade(t.Rows[0]["SIGLA"].ToString());
+                }
+                catch
+                {
+                    throw new ExcessaoRegraNegocio("Usuário inexisente!");
+                }
+            }
+            catch(ExcessaoBanco ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 

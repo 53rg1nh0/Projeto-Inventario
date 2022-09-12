@@ -42,5 +42,6 @@ namespace UI
                 btnEditar.Enabled = false;
             }
         }
+
     }
 }

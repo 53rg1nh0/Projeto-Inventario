@@ -13,6 +13,7 @@ namespace UI
 {
     public partial class frmLogin : Form
     {
+        
         public frmLogin()
         {
             InitializeComponent();
@@ -44,6 +45,7 @@ namespace UI
                     Responsavel r = new Responsavel(ucsLogin.txbLoginNome.Text);
                     if (r.Senha == ucsLogin.txbLoginSenhaAntiga.Text)
                     {
+                        FrmInventario.Name = ucsLogin.txbLoginNome.Text;
                         this.Close();
                     }
                     else

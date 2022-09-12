@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
+using System.Windows;
 
 namespace RelacaoPespUni
 {
@@ -64,13 +65,20 @@ namespace RelacaoPespUni
 
         public Unidade(string sigla)
         {
-            Con = new Conexao();
-            DataTable t = new DataTable();
-            t = Con.SqlCapturar("SELECT REGIAO, UF, UNIDADE FROM UNIDADES WHERE SIGLA ='"+sigla+"'");
-            Sigla = sigla;
-            Nome = t.Rows[0]["UNIDADE"].ToString();
-            Estado = t.Rows[0]["UF"].ToString();
-            Regiao = t.Rows[0]["REGIAO"].ToString();
+            try
+            {
+                Con = new Conexao();
+                DataTable t = new DataTable();
+                t = Con.SqlCapturar("SELECT REGIAO, UF, UNIDADE FROM UNIDADES WHERE SIGLA ='" + sigla + "'");
+                Sigla = sigla;
+                Nome = t.Rows[0]["UNIDADE"].ToString();
+                Estado = t.Rows[0]["UF"].ToString();
+                Regiao = t.Rows[0]["REGIAO"].ToString();
+            }
+            catch(ExcessaoBanco ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         public void IncerirNoBanco()

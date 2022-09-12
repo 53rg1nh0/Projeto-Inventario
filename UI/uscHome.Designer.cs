@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.tlpHome = new System.Windows.Forms.TableLayoutPanel();
-            this.adminstrador1 = new UI.Adminstrador();
+            this.adminstrador1 = new UI.Adminstrador(FrmInventario.Name);
             this.tlpHome.SuspendLayout();
             this.SuspendLayout();
             // 

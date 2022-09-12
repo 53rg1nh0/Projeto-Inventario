@@ -138,57 +138,63 @@ namespace UI
             }
             if (a || b || c)
             {
-                Tabela.AtualizarUnidades();
-                int linhas;
-
-                dgvAlterarUnidade.DataSource = Tabela.Unidades;
-
-                linhas = dgvAlterarUnidade.Rows.Count;
-
-                if (!ckbAdicionar.Checked)
+                try
                 {
-                    string[] sigla = Tabela.Unidades
-                    .AsEnumerable()
-                    .Select<System.Data.DataRow, String>(x => x.Field<String>("SIGLA"))
-                    .ToArray();
-                    string[] unidade = Tabela.Unidades
-                   .AsEnumerable()
-                   .Select<System.Data.DataRow, String>(x => x.Field<String>("UNIDADE"))
-                   .ToArray();
+                    Tabela.AtualizarUnidades();
+                    int linhas;
 
-                    txbCrudSigla.AutoCompleteCustomSource.AddRange(sigla);
-                    txbUnidade.AutoCompleteCustomSource.AddRange(unidade);
+                    dgvAlterarUnidade.DataSource = Tabela.Unidades;
 
-                    txbUnidade.AutoCompleteSource = AutoCompleteSource.CustomSource;
-                    txbUnidade.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                    linhas = dgvAlterarUnidade.Rows.Count;
 
-                    txbCrudSigla.AutoCompleteSource = AutoCompleteSource.CustomSource;
-                    txbCrudSigla.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                    if (!ckbAdicionar.Checked)
+                    {
+                        string[] sigla = Tabela.Unidades
+                        .AsEnumerable()
+                        .Select<System.Data.DataRow, String>(x => x.Field<String>("SIGLA"))
+                        .ToArray();
+                        string[] unidade = Tabela.Unidades
+                       .AsEnumerable()
+                       .Select<System.Data.DataRow, String>(x => x.Field<String>("UNIDADE"))
+                       .ToArray();
+
+                        txbCrudSigla.AutoCompleteCustomSource.AddRange(sigla);
+                        txbUnidade.AutoCompleteCustomSource.AddRange(unidade);
+
+                        txbUnidade.AutoCompleteSource = AutoCompleteSource.CustomSource;
+                        txbUnidade.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+
+                        txbCrudSigla.AutoCompleteSource = AutoCompleteSource.CustomSource;
+                        txbCrudSigla.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                    }
+                    else
+                    {
+                        txbCrudSigla.AutoCompleteCustomSource.Clear();
+                        txbUnidade.AutoCompleteCustomSource.Clear();
+                    }
+
+                    string[] uf = Tabela.Unidades
+                        .AsEnumerable()
+                        .Select<System.Data.DataRow, String>(x => x.Field<String>("UF"))
+                        .ToArray();
+                    string[] regiao = Tabela.Unidades
+                        .AsEnumerable()
+                        .Select<System.Data.DataRow, String>(x => x.Field<String>("REGIAO"))
+                        .ToArray();
+
+                    txbUf.AutoCompleteCustomSource.AddRange(uf);
+                    txbRegiao.AutoCompleteCustomSource.AddRange(regiao);
+
+                    txbUf.AutoCompleteSource = AutoCompleteSource.CustomSource;
+                    txbUf.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+
+                    txbRegiao.AutoCompleteSource = AutoCompleteSource.CustomSource;
+                    txbRegiao.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
                 }
-                else
-                {
-                    txbCrudSigla.AutoCompleteCustomSource.Clear();
-                    txbUnidade.AutoCompleteCustomSource.Clear();
+                catch (ExcessaoBanco ex) 
+                { 
+                    MessageBox.Show(ex.Message);
                 }
-
-                string[] uf = Tabela.Unidades
-                    .AsEnumerable()
-                    .Select<System.Data.DataRow, String>(x => x.Field<String>("UF"))
-                    .ToArray();
-                string[] regiao = Tabela.Unidades
-                    .AsEnumerable()
-                    .Select<System.Data.DataRow, String>(x => x.Field<String>("REGIAO"))
-                    .ToArray();
-
-                txbUf.AutoCompleteCustomSource.AddRange(uf);
-                txbRegiao.AutoCompleteCustomSource.AddRange(regiao);
-
-                txbUf.AutoCompleteSource = AutoCompleteSource.CustomSource;
-                txbUf.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-
-                txbRegiao.AutoCompleteSource = AutoCompleteSource.CustomSource;
-                txbRegiao.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-                
             }
         }
 
@@ -216,6 +222,10 @@ namespace UI
                 txbRegiao.Text = "";
                 MessageBox.Show("Operação realizada com sucesso!");
                 dgvAlterarUnidade.DataSource = Tabela.Unidades;
+            }
+            catch(ExcessaoBanco ex)
+            {
+                MessageBox.Show(ex.Message); 
             }
             catch (Exception ex)
             {
@@ -253,5 +263,7 @@ namespace UI
 
             }
         }
+
+        
     }
 }

@@ -6,14 +6,17 @@ namespace UI
 {
     public partial class FrmInventario : Form
     {
+        public static string Name;
         public FrmInventario()
         {
+
             Tabela.AtualizarUnidades();
             try
             {
                 
                 frmLogin f = new frmLogin();
                 f.ShowDialog();
+                Tabela.AtualizarUnidades();
             }
             catch (ExcessaoBanco ex)
             {
@@ -21,7 +24,12 @@ namespace UI
                 Application.Exit();
             }
             InitializeComponent();
-            
+
+            Paineis(false, false);
+            Paginas(uscHome);
+            AnimacaoBotoes(pnlNavegacao, btnHome);
+            btnHome.Image = Properties.Resources.imgHomeEscuro;
+
             uscAjuste.uscCrudUnidades.dgvAlterarUnidade.DataSource = Tabela.Unidades;
         }
 
@@ -48,8 +56,14 @@ namespace UI
             c.Dock = DockStyle.Fill;
         }
 
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            Paineis(false, false);
+            Paginas(uscHome);
+            AnimacaoBotoes(pnlNavegacao, btnHome);
+            btnHome.Image = Properties.Resources.imgHomeEscuro;
+        }
 
- 
         private void btnAjustes_Click(object sender, EventArgs e)
         {
 
@@ -100,6 +114,9 @@ namespace UI
                         case "btnSobre":
                             btn.Image = Properties.Resources.imgSobreClaro;
                             break;
+                        case "btnHome":
+                            btn.Image = Properties.Resources.imgHomeClaro;
+                            break;
                     }
 
                     if (btn == botao)
@@ -133,5 +150,7 @@ namespace UI
                 pnlTopLogo.BorderStyle = BorderStyle.FixedSingle;
             }
         }
+
+        
     }
 }

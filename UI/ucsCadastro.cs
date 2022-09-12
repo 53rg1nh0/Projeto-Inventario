@@ -35,9 +35,20 @@ namespace UI
             string exp = @"^(\w+.)?\w+@solarbr.com.br$";
             string tel = @"^[(][0-9]{2}[)][ ]([0-9][ ])?[0-9]{4}[-][0-9]{4}$";
             string mat = @"^[1-9][0-9]{7}([0-9]{2})?$";
+
+            string min = "[a-z]+";
+            string mai = "[A-Z]+";
+            string num = "[1-9]+";
+            string esp = @"\W+";
+
             Regex re = new Regex(exp);
             Regex te = new Regex(tel);
             Regex ma = new Regex(mat);
+
+            Regex s1 = new Regex(min);
+            Regex s2 = new Regex(num);
+            Regex s3 = new Regex(esp);
+            Regex s4 = new Regex(mai);
             try
             {
                 switch (pagina)
@@ -66,16 +77,22 @@ namespace UI
                     case 2:
                         if (Senha == txbCadastroSenhaTemp.Text && txbCadastroSenha.Text != "" && txbCadastroConfirmar.Text != "" && txbCadastroSenha.Text == txbCadastroConfirmar.Text)
                         {
+                            if (s1.IsMatch(txbCadastroSenha.Text) && s2.IsMatch(txbCadastroSenha.Text) && s3.IsMatch(txbCadastroSenha.Text) && s4.IsMatch(txbCadastroSenha.Text) && txbCadastroSenha.Text.Length > 6)
+                            {
+                                pagina = 3;
 
-                            pagina = 3;
+                                PulaPagina();
 
-                            PulaPagina();
+                                txbCadastroMtricula.Focus();
 
-                            txbCadastroMtricula.Focus();
+                                lblCadastroTitulo.Text = "              Cadastrar Dados";
 
-                            lblCadastroTitulo.Text = "              Cadastrar Dados";
+                            }
 
-
+                            else
+                            {
+                                throw new Exception("Senha não atende aos requisitos mínimos de complexidade e segurança!");
+                            }
                         }
                         else
                         {
@@ -125,9 +142,15 @@ namespace UI
                         if (txbCadastroUnidades.Text != "")
                         {
                             Responsavel r = new Responsavel(mtbCadastroTelCorp.Text, mtbCadastroTelPes.Text, txbCadastroEmail.Text, txbCadastroUsuario.Text, txbCadastroSenha.Text);
+
                             r.IncerirNoBanco();
+                            foreach (Object item in cbxCadastroExcluir.Items)
+                            {
+                                Relacao.IncerirNoBancoRespUni(txbCadastroUsuario.Text, item.ToString());
+                            }
                             MessageBox.Show("Cadastro realizado com sucesso!");
 
+                            pagina = 1;
                             txbCadastroUsuario.Text = "";
                             txbCadastroEmail.Text = "";
                             txbCadastroSenhaTemp.Text = "";
@@ -138,9 +161,9 @@ namespace UI
                             mtbCadastroTelPes.Text = "";
                             txbCadastroUnidades.Text = "";
 
-                            foreach(Object item in cbxCadastroExcluir.Items)
+                            foreach (Object item in cbxCadastroExcluir.Items)
                             {
-                                Unidades.Rows.Add(item.ToString());                             
+                                Unidades.Rows.Add(item.ToString());
                             }
                             cbxCadastroExcluir.Items.Clear();
                             pnlCadastroCentral.Location = new Point(pnlCadastroCentral.Location.X, pnlCadastroCentral.Location.Y + 447);
@@ -175,12 +198,12 @@ namespace UI
             Unidades.Rows.Remove(Unidades.Rows[cbxCadastroIncluir.SelectedIndex]);
             cbxCadastroIncluir.DataSource = Unidades;
 
-            txbCadastroUnidades.Text=ListaUnidades();
+            txbCadastroUnidades.Text = ListaUnidades();
         }
 
         private void btnCadastroExcluir_Click(object sender, EventArgs e)
         {
-            if(cbxCadastroExcluir.Items.Count > 0)
+            if (cbxCadastroExcluir.Items.Count > 0)
             {
                 Unidades.Rows.Add(cbxCadastroExcluir.Text);
                 cbxCadastroIncluir.DataSource = Unidades;
@@ -193,7 +216,7 @@ namespace UI
         {
             string result = "";
 
-            foreach(Object item in cbxCadastroExcluir.Items)
+            foreach (Object item in cbxCadastroExcluir.Items)
             {
                 result += item.ToString() + ", ";
             }
