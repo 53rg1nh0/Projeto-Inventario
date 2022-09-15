@@ -65,20 +65,22 @@ namespace RelacaoPespUni
 
         public Unidade(string sigla)
         {
-            try
+
+            Con = new Conexao();
+            DataTable t = new DataTable();
+            t = Con.SqlCapturar("SELECT REGIAO, UF, UNIDADE FROM UNIDADES WHERE SIGLA ='" + sigla + "'");
+            if (t.Rows.Count == 1)
             {
-                Con = new Conexao();
-                DataTable t = new DataTable();
-                t = Con.SqlCapturar("SELECT REGIAO, UF, UNIDADE FROM UNIDADES WHERE SIGLA ='" + sigla + "'");
                 Sigla = sigla;
                 Nome = t.Rows[0]["UNIDADE"].ToString();
                 Estado = t.Rows[0]["UF"].ToString();
                 Regiao = t.Rows[0]["REGIAO"].ToString();
             }
-            catch(ExcessaoBanco ex)
+            else
             {
-                MessageBox.Show(ex.Message);
+                throw new ExcessaoRegraNegocio("Unidade não cadastrada. Quebra de banco!");
             }
+
         }
 
         public void IncerirNoBanco()

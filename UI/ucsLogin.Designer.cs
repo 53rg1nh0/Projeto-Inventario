@@ -116,7 +116,6 @@
             this.txbLoginSenhaAntiga.Name = "txbLoginSenhaAntiga";
             this.txbLoginSenhaAntiga.Size = new System.Drawing.Size(278, 23);
             this.txbLoginSenhaAntiga.TabIndex = 2;
-            this.txbLoginSenhaAntiga.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txbLoginSenhaAntiga_KeyUp);
             // 
             // btnNext
             // 

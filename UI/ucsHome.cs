@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace UI
 {
-    public partial class Home : UserControl
+    public partial class ucsHome : UserControl
     {
-        public Home()
+        public ucsHome()
         {
             InitializeComponent();
         }

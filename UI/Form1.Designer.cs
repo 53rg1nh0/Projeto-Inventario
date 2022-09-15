@@ -53,7 +53,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.pnlBackgrund = new System.Windows.Forms.Panel();
             this.pnlBack = new System.Windows.Forms.Panel();
-            this.uscHome = new UI.Home();
+            this.ucsHome = new UI.ucsHome();
             this.uscSobre = new UI.ucsSobre();
             this.uscAjuste = new UI.Ajustes();
             this.pnlInformacao = new System.Windows.Forms.Panel();
@@ -175,7 +175,7 @@
             this.pnlEquipamento.Controls.Add(this.btnManutencao);
             this.pnlEquipamento.Controls.Add(this.btnAdicionar);
             this.pnlEquipamento.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlEquipamento.Location = new System.Drawing.Point(0, 314);
+            this.pnlEquipamento.Location = new System.Drawing.Point(0, 303);
             this.pnlEquipamento.Name = "pnlEquipamento";
             this.pnlEquipamento.Size = new System.Drawing.Size(180, 109);
             this.pnlEquipamento.TabIndex = 11;
@@ -248,7 +248,7 @@
             this.btnEquipamento.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnEquipamento.Image = ((System.Drawing.Image)(resources.GetObject("btnEquipamento.Image")));
             this.btnEquipamento.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEquipamento.Location = new System.Drawing.Point(0, 261);
+            this.btnEquipamento.Location = new System.Drawing.Point(0, 250);
             this.btnEquipamento.Margin = new System.Windows.Forms.Padding(0);
             this.btnEquipamento.Name = "btnEquipamento";
             this.btnEquipamento.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
@@ -262,7 +262,7 @@
             // panel4
             // 
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(0, 247);
+            this.panel4.Location = new System.Drawing.Point(0, 236);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(180, 14);
             this.panel4.TabIndex = 11;
@@ -272,7 +272,7 @@
             this.pnlCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(85)))), ((int)(((byte)(101)))));
             this.pnlCliente.Controls.Add(this.btnNovato);
             this.pnlCliente.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlCliente.Location = new System.Drawing.Point(0, 200);
+            this.pnlCliente.Location = new System.Drawing.Point(0, 189);
             this.pnlCliente.Name = "pnlCliente";
             this.pnlCliente.Size = new System.Drawing.Size(180, 47);
             this.pnlCliente.TabIndex = 9;
@@ -308,7 +308,7 @@
             this.btnCliente.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnCliente.Image = ((System.Drawing.Image)(resources.GetObject("btnCliente.Image")));
             this.btnCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCliente.Location = new System.Drawing.Point(0, 147);
+            this.btnCliente.Location = new System.Drawing.Point(0, 136);
             this.btnCliente.Margin = new System.Windows.Forms.Padding(0);
             this.btnCliente.Name = "btnCliente";
             this.btnCliente.Size = new System.Drawing.Size(180, 53);
@@ -321,7 +321,7 @@
             // panel3
             // 
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 133);
+            this.panel3.Location = new System.Drawing.Point(0, 122);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(180, 14);
             this.panel3.TabIndex = 10;
@@ -336,7 +336,7 @@
             this.btnHome.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnHome.Image = ((System.Drawing.Image)(resources.GetObject("btnHome.Image")));
             this.btnHome.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHome.Location = new System.Drawing.Point(0, 80);
+            this.btnHome.Location = new System.Drawing.Point(0, 69);
             this.btnHome.Margin = new System.Windows.Forms.Padding(0);
             this.btnHome.Name = "btnHome";
             this.btnHome.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
@@ -357,7 +357,7 @@
             this.pnlLogo.Location = new System.Drawing.Point(0, 0);
             this.pnlLogo.Margin = new System.Windows.Forms.Padding(0);
             this.pnlLogo.Name = "pnlLogo";
-            this.pnlLogo.Size = new System.Drawing.Size(180, 80);
+            this.pnlLogo.Size = new System.Drawing.Size(180, 69);
             this.pnlLogo.TabIndex = 7;
             // 
             // pnlTopLogo
@@ -369,7 +369,7 @@
             this.pnlTopLogo.Location = new System.Drawing.Point(0, 0);
             this.pnlTopLogo.Margin = new System.Windows.Forms.Padding(0);
             this.pnlTopLogo.Name = "pnlTopLogo";
-            this.pnlTopLogo.Size = new System.Drawing.Size(180, 66);
+            this.pnlTopLogo.Size = new System.Drawing.Size(180, 55);
             this.pnlTopLogo.TabIndex = 3;
             // 
             // pnlLogoSolar
@@ -377,7 +377,7 @@
             this.pnlLogoSolar.BackColor = System.Drawing.SystemColors.Control;
             this.pnlLogoSolar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlLogoSolar.BackgroundImage")));
             this.pnlLogoSolar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pnlLogoSolar.Location = new System.Drawing.Point(61, 11);
+            this.pnlLogoSolar.Location = new System.Drawing.Point(61, 3);
             this.pnlLogoSolar.Margin = new System.Windows.Forms.Padding(5);
             this.pnlLogoSolar.Name = "pnlLogoSolar";
             this.pnlLogoSolar.Size = new System.Drawing.Size(113, 47);
@@ -387,7 +387,7 @@
             // 
             this.ptbLogo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ptbLogo.Image = ((System.Drawing.Image)(resources.GetObject("ptbLogo.Image")));
-            this.ptbLogo.Location = new System.Drawing.Point(3, 2);
+            this.ptbLogo.Location = new System.Drawing.Point(3, -3);
             this.ptbLogo.Margin = new System.Windows.Forms.Padding(0);
             this.ptbLogo.Name = "ptbLogo";
             this.ptbLogo.Size = new System.Drawing.Size(64, 66);
@@ -399,7 +399,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(65)))), ((int)(((byte)(81)))));
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 66);
+            this.panel1.Location = new System.Drawing.Point(0, 55);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(180, 14);
             this.panel1.TabIndex = 2;
@@ -418,7 +418,7 @@
             // 
             // pnlBack
             // 
-            this.pnlBack.Controls.Add(this.uscHome);
+            this.pnlBack.Controls.Add(this.ucsHome);
             this.pnlBack.Controls.Add(this.uscSobre);
             this.pnlBack.Controls.Add(this.uscAjuste);
             this.pnlBack.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -427,25 +427,25 @@
             this.pnlBack.Size = new System.Drawing.Size(1004, 412);
             this.pnlBack.TabIndex = 4;
             // 
-            // uscHome
+            // ucsHome
             // 
-            this.uscHome.Location = new System.Drawing.Point(212, 26);
-            this.uscHome.Name = "uscHome";
-            this.uscHome.Size = new System.Drawing.Size(118, 92);
-            this.uscHome.TabIndex = 3;
+            this.ucsHome.Location = new System.Drawing.Point(31, 26);
+            this.ucsHome.Name = "ucsHome";
+            this.ucsHome.Size = new System.Drawing.Size(120, 107);
+            this.ucsHome.TabIndex = 3;
             // 
             // uscSobre
             // 
-            this.uscSobre.Location = new System.Drawing.Point(362, 26);
+            this.uscSobre.Location = new System.Drawing.Point(283, 26);
             this.uscSobre.Name = "uscSobre";
-            this.uscSobre.Size = new System.Drawing.Size(131, 92);
+            this.uscSobre.Size = new System.Drawing.Size(120, 107);
             this.uscSobre.TabIndex = 2;
             // 
             // uscAjuste
             // 
-            this.uscAjuste.Location = new System.Drawing.Point(41, 15);
+            this.uscAjuste.Location = new System.Drawing.Point(157, 26);
             this.uscAjuste.Name = "uscAjuste";
-            this.uscAjuste.Size = new System.Drawing.Size(156, 124);
+            this.uscAjuste.Size = new System.Drawing.Size(120, 107);
             this.uscAjuste.TabIndex = 0;
             // 
             // pnlInformacao
@@ -541,6 +541,7 @@
             this.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1200, 478);
+            this.Name = "FrmInventario";
             this.Text = "Inventário TI";
             this.pnlNavegacaoBack.ResumeLayout(false);
             this.pnlNavegacao.ResumeLayout(false);
@@ -592,6 +593,6 @@
         private Panel panel4;
         private Panel panel3;
         public Button btnHome;
-        public Home uscHome;
+        private ucsHome ucsHome;
     }
 }

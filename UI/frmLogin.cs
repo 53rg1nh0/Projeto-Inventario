@@ -45,7 +45,7 @@ namespace UI
                     Responsavel r = new Responsavel(ucsLogin.txbLoginNome.Text);
                     if (r.Senha == ucsLogin.txbLoginSenhaAntiga.Text)
                     {
-                        FrmInventario.Name = ucsLogin.txbLoginNome.Text;
+                        FrmInventario._Usuario_ = ucsLogin.txbLoginNome.Text;
                         this.Close();
                     }
                     else

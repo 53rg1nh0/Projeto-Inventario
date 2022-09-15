@@ -48,41 +48,9 @@ namespace UI
             lblEditarCadastro.ForeColor = Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(65)))), ((int)(((byte)(81)))));
         }
 
-        private void txbLoginSenhaAntiga_KeyUp(object sender, KeyEventArgs e)
-        {
-            if(e.KeyCode== Keys.Enter && lblSenhaAntiga.Text=="Senha")
-            {
-                if (txbLoginNome.Text == "" || txbLoginSenhaAntiga.Text == "")
-                {
-                    MessageBox.Show("Não pode haver campos em branco!");
-                }
-                else
-                {
-                    try
-                    {
-                        Responsavel r = new Responsavel(txbLoginNome.Text);
-                        if (r.Senha == txbLoginSenhaAntiga.Text)
-                        {
-                            frmLogin.ActiveForm.Close();
-                        }
-                        else
-                        {
-                            throw new Exception("Usuário ou senha imcorretos!");
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                        txbLoginSenhaAntiga.Text = "";
-                    }
-                }
-            }
-        }
 
         private void lblCadastrar_Click(object sender, EventArgs e)
         {
-            //frmCadastro f = new frmCadastro(Tabela.Unidades);
-            //f.ShowDialog();
             ucsCadastro.Visible = true;
         }
 

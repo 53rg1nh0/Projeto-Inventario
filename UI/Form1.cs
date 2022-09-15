@@ -6,17 +6,33 @@ namespace UI
 {
     public partial class FrmInventario : Form
     {
-        public static string Name;
+        public static string _Usuario_;
+        public static string _Unidade_;
+        public static int _TotalEquipamentos_;
+        public static int _TotalBakupNotebook_;
+        public static int _TotalBackupDesktop_;
+
+        //CRIAR CLASSE LOCADO QUE HERDA DE RESPONSAVEL
+        //POSSUI CAPOS ESTATICOS (USUÁRIO,UNIDADE,TOTALEQUPAMENTO,TOTALBACKUPNOTEBOOK,TOTALBACKUPDESKTOP)
+        //METODO PARA PREENCHER OS CAMPOS STATICOS 
+        //USANDO COMO EXEMPLO NESSA CLASSE A PROPROEDADE LBLTOTAL.TEST += LOCADO.TOTALEQUIPAMENTO
+        //COM ISSO É POSSÍVEL OBTER VÁRIAS OUTRAS INFOMAÇÕES IMPORTANTE QUE SERÁ USADO EM OUTRAS CLASSES DEVIDO A VARIÁVEL GLOBAL ESTÁTICA.
+
         public FrmInventario()
         {
 
-            Tabela.AtualizarUnidades();
             try
             {
-                
+                Conexao con = new Conexao();
+                DataTable dt = new DataTable();
                 frmLogin f = new frmLogin();
+
+                Tabela.AtualizarUnidades();
                 f.ShowDialog();
                 Tabela.AtualizarUnidades();
+
+                dt = con.SqlCapturar("SELECT * FROM EQUIPAMENTO");
+                _TotalEquipamentos_= dt.Rows.Count;
             }
             catch (ExcessaoBanco ex)
             {
@@ -25,8 +41,10 @@ namespace UI
             }
             InitializeComponent();
 
+            lblTotal.Text += " " + _TotalEquipamentos_;
+
             Paineis(false, false);
-            Paginas(uscHome);
+            Paginas(ucsHome);
             AnimacaoBotoes(pnlNavegacao, btnHome);
             btnHome.Image = Properties.Resources.imgHomeEscuro;
 
@@ -59,7 +77,7 @@ namespace UI
         private void btnHome_Click(object sender, EventArgs e)
         {
             Paineis(false, false);
-            Paginas(uscHome);
+            Paginas(ucsHome);
             AnimacaoBotoes(pnlNavegacao, btnHome);
             btnHome.Image = Properties.Resources.imgHomeEscuro;
         }
@@ -87,7 +105,7 @@ namespace UI
         }
         private void btnNovato_Click(object sender, EventArgs e)
         {
-            Paginas(uscHome);
+            Paginas(ucsHome);
         }
 
         private void btnEquipamento_Click(object sender, EventArgs e)
@@ -151,6 +169,5 @@ namespace UI
             }
         }
 
-        
     }
 }

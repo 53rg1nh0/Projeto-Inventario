@@ -111,7 +111,7 @@ namespace RelacaoPespUni
             }
             catch
             {
-                throw new Exception("Cadastro não foi bem sucedido, pois responsável já está cadastrado!");
+                throw new ExcessaoRegraNegocio("Cadastro não foi bem sucedido, pois responsável já está cadastrado!");
             }
 
         }

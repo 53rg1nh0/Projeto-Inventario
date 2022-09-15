@@ -56,13 +56,12 @@ namespace UI
                     case 1:
                         if (re.IsMatch(txbCadastroEmail.Text))
                         {
-                            Cliente c = new Cliente(txbCadastroUsuario.Text);
+                            Cliente c = new Cliente(txbCadastroUsuario.Text.ToLower());
 
                             Senha = Responsavel.Autenticar(txbCadastroEmail.Text);
 
-                            pagina = 2;
 
-                            PulaPagina();
+                            PulaPagina(-149);
 
                             txbCadastroSenhaTemp.Focus();
 
@@ -79,9 +78,8 @@ namespace UI
                         {
                             if (s1.IsMatch(txbCadastroSenha.Text) && s2.IsMatch(txbCadastroSenha.Text) && s3.IsMatch(txbCadastroSenha.Text) && s4.IsMatch(txbCadastroSenha.Text) && txbCadastroSenha.Text.Length > 6)
                             {
-                                pagina = 3;
 
-                                PulaPagina();
+                                PulaPagina(-149);
 
                                 txbCadastroMtricula.Focus();
 
@@ -114,9 +112,8 @@ namespace UI
                     case 3:
                         if (ma.IsMatch(txbCadastroMtricula.Text) && te.IsMatch(mtbCadastroTelCorp.Text) && te.IsMatch(mtbCadastroTelPes.Text))
                         {
-                            pagina = 4;
 
-                            PulaPagina();
+                            PulaPagina(-149);
 
                             txbCadastroUnidades.Focus();
 
@@ -142,15 +139,20 @@ namespace UI
                         if (txbCadastroUnidades.Text != "")
                         {
                             Responsavel r = new Responsavel(mtbCadastroTelCorp.Text, mtbCadastroTelPes.Text, txbCadastroEmail.Text, txbCadastroUsuario.Text, txbCadastroSenha.Text);
+                            Conexao con = new Conexao();
 
                             r.IncerirNoBanco();
-                            foreach (Object item in cbxCadastroExcluir.Items)
+                            con.SqlInserir("UPDATE CLIENTE SET MATRICULA = '" + int.Parse(txbCadastroMtricula.Text) + "' WHERE USERID = '" + r.UserId + "'");
+                            
+                            foreach (var item in cbxCadastroExcluir.Items)
                             {
                                 Relacao.IncerirNoBancoRespUni(txbCadastroUsuario.Text, item.ToString());
+                                Unidades.Rows.Add(item.ToString());
                             }
                             MessageBox.Show("Cadastro realizado com sucesso!");
 
-                            pagina = 1;
+                            cbxCadastroExcluir.Items.Clear();
+
                             txbCadastroUsuario.Text = "";
                             txbCadastroEmail.Text = "";
                             txbCadastroSenhaTemp.Text = "";
@@ -161,12 +163,7 @@ namespace UI
                             mtbCadastroTelPes.Text = "";
                             txbCadastroUnidades.Text = "";
 
-                            foreach (Object item in cbxCadastroExcluir.Items)
-                            {
-                                Unidades.Rows.Add(item.ToString());
-                            }
-                            cbxCadastroExcluir.Items.Clear();
-                            pnlCadastroCentral.Location = new Point(pnlCadastroCentral.Location.X, pnlCadastroCentral.Location.Y + 447);
+                            PulaPagina(447);
                             Visible = false;
                         }
                         else
@@ -183,9 +180,10 @@ namespace UI
             }
         }
 
-        private void PulaPagina()
+        private void PulaPagina(int passar)
         {
-            pnlCadastroCentral.Location = new Point(pnlCadastroCentral.Location.X, pnlCadastroCentral.Location.Y - 149);
+            pnlCadastroCentral.Location = new Point(pnlCadastroCentral.Location.X, pnlCadastroCentral.Location.Y + passar);
+            pagina = passar == 447 ?  1 : pagina+1;
         }
 
         private void btnCadastroIncluir_Click(object sender, EventArgs e)
@@ -216,7 +214,7 @@ namespace UI
         {
             string result = "";
 
-            foreach (Object item in cbxCadastroExcluir.Items)
+            foreach (var item in cbxCadastroExcluir.Items)
             {
                 result += item.ToString() + ", ";
             }
