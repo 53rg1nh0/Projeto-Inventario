@@ -8,7 +8,7 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows;
 
-namespace RelacaoPespUni
+namespace RegrasDeNegocio
 {
     public class Unidade
     {

@@ -7,11 +7,18 @@ using System.Net.Mail;
 using System.Threading;
 using System.Windows;
 using System.Drawing;
+using System.Linq;
 
-namespace RelacaoPespUni
+namespace RegrasDeNegocio
 {
     public class Responsavel : Cliente
     {
+        public static string Usuario;
+        public static string Local;
+        public static int TotalEquipamentos;
+        public static int TotalBakupNotebook;
+        public static int TotalBackupDesktop;
+
         public string TelefoneCorporativo { get; set; }
         public string TelefonePessoal { get; set; }
         public string Email { get; set; }
@@ -36,7 +43,11 @@ namespace RelacaoPespUni
         {
             Con = new Conexao();
             DataTable t = new DataTable();
-            t = Con.SqlCapturar("SELECT C.MATRICULA AS MATRICULA, C.SIGLA AS SIGLA, C.NOME AS NOME, C.AREA AS AREA, C.CARGO AS CARGO, R.SENHA AS SENHA,R.TELEFONECORPORATIVO AS TELCORP, R.TELEFONEPESSOAL AS TELPESSOAL,R.EMAIL AS EMAIL, R.TIPO AS TIPO FROM CLIENTE C INNER JOIN RESPONSAVEL R ON C.USERID = R.USERID_CLIENTE WHERE C.USERID ='" + userID + "'");
+
+            t = Con.SqlCapturar("SELECT C.MATRICULA AS MATRICULA, C.SIGLA AS SIGLA, C.NOME AS NOME, C.AREA AS AREA, C.CARGO AS CARGO, " +
+                "R.SENHA AS SENHA,R.TELEFONECORPORATIVO AS TELCORP, R.TELEFONEPESSOAL AS TELPESSOAL,R.EMAIL AS EMAIL, R.TIPO AS TIPO " +
+                "FROM CLIENTE C INNER JOIN RESPONSAVEL R ON C.USERID = R.USERID_CLIENTE WHERE C.USERID ='" + userID + "'");
+
             if (t.Rows.Count != 0 && !ReferenceEquals(t, null))
             {
                 Matricula = Convert.ToInt32(t.Rows[0]["MATRICULA"]);
@@ -56,7 +67,6 @@ namespace RelacaoPespUni
             {
                 throw new ExcessaoRegraNegocio("Usuário ou senha imcorretos!");
             }
-
         }
 
         public static string Autenticar(string email)
@@ -81,7 +91,6 @@ namespace RelacaoPespUni
             mensagem.IsBodyHtml = true;
 
             client.Send(mensagem);
-
             return senha;
         }
 
@@ -106,15 +115,38 @@ namespace RelacaoPespUni
         {
             try
             {
-                Con.SqlInserir("INSERT INTO RESPONSAVEL (USERID_CLIENTE, TELEFONECORPORATIVO, TELEFONEPESSOAL,EMAIL,TIPO,SENHA) VALUES ('" + UserId + "', '" + TelefoneCorporativo + "', '" + TelefonePessoal + "', '" + Email + "', '" + Tipo + "', '" + Senha + "')");
+                Con.SqlInserir("INSERT INTO RESPONSAVEL (USERID_CLIENTE, TELEFONECORPORATIVO, TELEFONEPESSOAL,EMAIL,TIPO,SENHA) " +
+                    "VALUES ('" + UserId + "', '" + TelefoneCorporativo + "', '" + TelefonePessoal + "', '" + Email + "', '" + Tipo + "', '" + Senha + "')");
                 Tabela.AtualizarResponsaveis();
             }
             catch
             {
                 throw new ExcessaoRegraNegocio("Cadastro não foi bem sucedido, pois responsável já está cadastrado!");
             }
-
         }
         //propriedade movimentação
+        public void Logar()
+        {
+            Tabela.AtualizarEquipamentos();
+
+            Usuario = UserId;
+            Local = Unidade.Nome;
+            TotalEquipamentos = Tabela.Equipamentos.AsEnumerable().Count(c => c.Field<string>("NOMENCLATURA").Substring(0, 3) == "IGT");
+
+            TotalBakupNotebook = Tabela.Equipamentos.AsEnumerable().Count(c => c.Field<string>("NOMENCLATURA").Substring(0, 3) == "IGT"
+            && c.Field<string>("STATUS") == "backup" && c.Field<string>("EQUIPAMENTO") == "Notebook");
+
+            TotalBackupDesktop = Tabela.Equipamentos.AsEnumerable().Count(c => c.Field<string>("NOMENCLATURA").Substring(0, 3) == "IGT"
+            && c.Field<string>("STATUS") == "backup" && c.Field<string>("EQUIPAMENTO") == "Desktop");
+        }
+
+        public static void Deslogar()
+        {
+            Usuario = "";
+            Local = "";
+            TotalEquipamentos = 0;
+            TotalBakupNotebook = 0;
+            TotalBackupDesktop = 0;
+        }
     }
 }

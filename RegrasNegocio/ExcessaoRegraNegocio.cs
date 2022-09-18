@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RelacaoPespUni
+namespace RegrasDeNegocio
 {
-    internal class ExcessaoRegraNegocio : Exception
+    public class ExcessaoRegraNegocio : Exception
     {
         public ExcessaoRegraNegocio(string mensagem) : base(mensagem)
         {

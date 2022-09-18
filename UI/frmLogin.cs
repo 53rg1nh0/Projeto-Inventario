@@ -1,4 +1,4 @@
-﻿using RelacaoPespUni;
+﻿using RegrasDeNegocio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UI.Properties;
 
 namespace UI
 {
@@ -45,7 +46,7 @@ namespace UI
                     Responsavel r = new Responsavel(ucsLogin.txbLoginNome.Text);
                     if (r.Senha == ucsLogin.txbLoginSenhaAntiga.Text)
                     {
-                        FrmInventario._Usuario_ = ucsLogin.txbLoginNome.Text;
+                        r.Logar();
                         this.Close();
                     }
                     else

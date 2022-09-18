@@ -1,22 +1,12 @@
 using ConexaoDB;
-using RelacaoPespUni;
+using RegrasDeNegocio;
 using System.Data;
+using UI.Properties;
 
 namespace UI
 {
     public partial class FrmInventario : Form
     {
-        public static string _Usuario_;
-        public static string _Unidade_;
-        public static int _TotalEquipamentos_;
-        public static int _TotalBakupNotebook_;
-        public static int _TotalBackupDesktop_;
-
-        //CRIAR CLASSE LOCADO QUE HERDA DE RESPONSAVEL
-        //POSSUI CAPOS ESTATICOS (USUÁRIO,UNIDADE,TOTALEQUPAMENTO,TOTALBACKUPNOTEBOOK,TOTALBACKUPDESKTOP)
-        //METODO PARA PREENCHER OS CAMPOS STATICOS 
-        //USANDO COMO EXEMPLO NESSA CLASSE A PROPROEDADE LBLTOTAL.TEST += LOCADO.TOTALEQUIPAMENTO
-        //COM ISSO É POSSÍVEL OBTER VÁRIAS OUTRAS INFOMAÇÕES IMPORTANTE QUE SERÁ USADO EM OUTRAS CLASSES DEVIDO A VARIÁVEL GLOBAL ESTÁTICA.
 
         public FrmInventario()
         {
@@ -24,15 +14,22 @@ namespace UI
             try
             {
                 Conexao con = new Conexao();
-                DataTable dt = new DataTable();
                 frmLogin f = new frmLogin();
+                if (Settings.Default.user == "")
+                {
+                    Tabela.AtualizarUnidades();
+                    f.ShowDialog();
+                    Settings.Default.user = Responsavel.Usuario;
+                    Settings.Default.Save();
+                }
+                else
+                {
+                    Responsavel r = new Responsavel(Settings.Default.user);
+                    r.Logar();
+                }
 
+                
                 Tabela.AtualizarUnidades();
-                f.ShowDialog();
-                Tabela.AtualizarUnidades();
-
-                dt = con.SqlCapturar("SELECT * FROM EQUIPAMENTO");
-                _TotalEquipamentos_= dt.Rows.Count;
             }
             catch (ExcessaoBanco ex)
             {
@@ -41,7 +38,10 @@ namespace UI
             }
             InitializeComponent();
 
-            lblTotal.Text += " " + _TotalEquipamentos_;
+            lblUnidade.Text += " " + Responsavel.Local;
+            lblTotal.Text += " " + Responsavel.TotalEquipamentos;
+            lblBackupNotebooks.Text += " " + Responsavel.TotalBakupNotebook;
+            lblBackupsDesktop.Text += " " + Responsavel.TotalBackupDesktop;
 
             Paineis(false, false);
             Paginas(ucsHome);
@@ -51,7 +51,7 @@ namespace UI
             uscAjuste.uscCrudUnidades.dgvAlterarUnidade.DataSource = Tabela.Unidades;
         }
 
-       
+
 
         private void Paineis(bool cl, bool eq)
         {
@@ -157,7 +157,7 @@ namespace UI
             {
                 pnlNavegacaoBack.Width = 60;
                 pnlLogo.Width = 60;
-                pnlLogoSolar.Visible= false;    
+                pnlLogoSolar.Visible = false;
                 pnlTopLogo.BorderStyle = BorderStyle.None;
             }
             else

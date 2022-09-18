@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace RelacaoPespUni
+namespace RegrasDeNegocio
 {
     public class Cliente
     {

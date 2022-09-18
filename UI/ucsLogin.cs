@@ -1,5 +1,5 @@
 ﻿using ConexaoDB;
-using RelacaoPespUni;
+using RegrasDeNegocio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

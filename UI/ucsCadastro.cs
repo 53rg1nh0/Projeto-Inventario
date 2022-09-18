@@ -1,5 +1,5 @@
 ﻿using ConexaoDB;
-using RelacaoPespUni;
+using RegrasDeNegocio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -57,15 +57,22 @@ namespace UI
                         if (re.IsMatch(txbCadastroEmail.Text))
                         {
                             Cliente c = new Cliente(txbCadastroUsuario.Text.ToLower());
+                            try
+                            {
+                                Responsavel r = new Responsavel(txbCadastroUsuario.Text.ToLower());
+                                throw new Exception("Responsável já cadastrado!");
+                            }
+                            catch (ExcessaoRegraNegocio)
+                            {
+                                Senha = Responsavel.Autenticar(txbCadastroEmail.Text);
 
-                            Senha = Responsavel.Autenticar(txbCadastroEmail.Text);
 
+                                PulaPagina(-149);
 
-                            PulaPagina(-149);
+                                txbCadastroSenhaTemp.Focus();
 
-                            txbCadastroSenhaTemp.Focus();
-
-                            lblCadastroTitulo.Text = "                 Alterar Senha";
+                                lblCadastroTitulo.Text = "                 Alterar Senha";
+                            } 
                         }
                         else
                         {
@@ -143,7 +150,7 @@ namespace UI
 
                             r.IncerirNoBanco();
                             con.SqlInserir("UPDATE CLIENTE SET MATRICULA = '" + int.Parse(txbCadastroMtricula.Text) + "' WHERE USERID = '" + r.UserId + "'");
-                            
+
                             foreach (var item in cbxCadastroExcluir.Items)
                             {
                                 Relacao.IncerirNoBancoRespUni(txbCadastroUsuario.Text, item.ToString());
@@ -172,7 +179,6 @@ namespace UI
                         }
                         break;
                 }
-
             }
             catch (Exception ex)
             {
@@ -183,7 +189,7 @@ namespace UI
         private void PulaPagina(int passar)
         {
             pnlCadastroCentral.Location = new Point(pnlCadastroCentral.Location.X, pnlCadastroCentral.Location.Y + passar);
-            pagina = passar == 447 ?  1 : pagina+1;
+            pagina = passar == 447 ? 1 : pagina + 1;
         }
 
         private void btnCadastroIncluir_Click(object sender, EventArgs e)
@@ -223,7 +229,7 @@ namespace UI
 
         private void btnCadastroVolta_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
+            Visible = false;
         }
     }
 }

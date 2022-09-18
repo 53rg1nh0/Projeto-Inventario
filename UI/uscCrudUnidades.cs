@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ConexaoDB;
-using RelacaoPespUni;
+using RegrasDeNegocio;
 
 namespace UI
 {
@@ -151,11 +151,11 @@ namespace UI
                     {
                         string[] sigla = Tabela.Unidades
                         .AsEnumerable()
-                        .Select<System.Data.DataRow, String>(x => x.Field<String>("SIGLA"))
+                        .Select<DataRow, String>(x => x.Field<String>("SIGLA"))
                         .ToArray();
                         string[] unidade = Tabela.Unidades
                        .AsEnumerable()
-                       .Select<System.Data.DataRow, String>(x => x.Field<String>("UNIDADE"))
+                       .Select<DataRow, String>(x => x.Field<String>("UNIDADE"))
                        .ToArray();
 
                         txbCrudSigla.AutoCompleteCustomSource.AddRange(sigla);
@@ -175,11 +175,11 @@ namespace UI
 
                     string[] uf = Tabela.Unidades
                         .AsEnumerable()
-                        .Select<System.Data.DataRow, String>(x => x.Field<String>("UF"))
+                        .Select<DataRow, String>(x => x.Field<String>("UF"))
                         .ToArray();
                     string[] regiao = Tabela.Unidades
                         .AsEnumerable()
-                        .Select<System.Data.DataRow, String>(x => x.Field<String>("REGIAO"))
+                        .Select<DataRow, String>(x => x.Field<String>("REGIAO"))
                         .ToArray();
 
                     txbUf.AutoCompleteCustomSource.AddRange(uf);

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ConexaoDB;
 
-namespace RelacaoPespUni
+namespace RegrasDeNegocio
 {
 
     public class Relacao
