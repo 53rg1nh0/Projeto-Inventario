@@ -82,6 +82,7 @@
             this.lblEditarCadastro.Size = new System.Drawing.Size(51, 17);
             this.lblEditarCadastro.TabIndex = 4;
             this.lblEditarCadastro.Text = "Usuário";
+            this.lblEditarCadastro.Click += new System.EventHandler(this.lblEditarCadastro_Click);
             this.lblEditarCadastro.MouseEnter += new System.EventHandler(this.lblEditarCadastro_MouseEnter);
             this.lblEditarCadastro.MouseLeave += new System.EventHandler(this.lblEditarCadastro_MouseLeave);
             this.lblEditarCadastro.MouseHover += new System.EventHandler(this.lblEditarCadastro_MouseHover);

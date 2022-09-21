@@ -54,6 +54,12 @@ namespace UI
             ucsCadastro.Visible = true;
         }
 
-        
+        private void lblEditarCadastro_Click(object sender, EventArgs e)
+        {
+            //ucsCadastro.Visible = true;
+            //ucsCadastro.lblCadastroEmail.Visible = false;
+            //ucsCadastro.txbCadastroEmail.Visible = false;
+            //ucsCadastro.cadastro = true;
+        }
     }
 }

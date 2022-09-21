@@ -19,6 +19,7 @@ namespace UI
         public DataTable Unidades { get; set; }
         private string Senha = "";
         private int pagina = 1;
+        //public bool cadastro = false;
         public ucsCadastro()
         {
             Unidades = Tabela.Unidades;
@@ -50,35 +51,57 @@ namespace UI
             Regex s3 = new Regex(esp);
             Regex s4 = new Regex(mai);
             try
+
             {
                 switch (pagina)
                 {
                     case 1:
-                        if (re.IsMatch(txbCadastroEmail.Text))
-                        {
-                            Cliente c = new Cliente(txbCadastroUsuario.Text.ToLower());
-                            try
+                        //if (cadastro)
+                        //{
+                        //    Cliente c = new Cliente(txbCadastroUsuario.Text.ToLower());
+                        //    try
+                        //    {
+                        //        Responsavel r = new Responsavel(txbCadastroUsuario.Text.ToLower());
+                        //        Senha = Responsavel.Autenticar(r.Email);
+
+                        //        this.Visible = false;
+
+                        //        frmEditarCadastro frmEditarCadastro = new frmEditarCadastro();
+                        //        frmEditarCadastro.ShowDialog();
+
+                        //    }
+                        //    catch (ExcessaoRegraNegocio)
+                        //    {
+                        //        throw new Exception("Usuário não existe");
+                        //    }
+                        //}
+                        //else
+                        //{
+                            if (re.IsMatch(txbCadastroEmail.Text))
                             {
-                                Responsavel r = new Responsavel(txbCadastroUsuario.Text.ToLower());
-                                throw new Exception("Responsável já cadastrado!");
+                                Cliente c = new Cliente(txbCadastroUsuario.Text.ToLower());
+                                try
+                                {
+                                    Responsavel r = new Responsavel(txbCadastroUsuario.Text.ToLower());
+                                    throw new Exception("Responsável já cadastrado!");
+                                }
+                                catch (ExcessaoRegraNegocio)
+                                {
+                                    Senha = Responsavel.Autenticar(txbCadastroEmail.Text);
+
+
+                                    PulaPagina(-149);
+
+                                    txbCadastroSenhaTemp.Focus();
+
+                                    lblCadastroTitulo.Text = "                 Alterar Senha";
+                                }
                             }
-                            catch (ExcessaoRegraNegocio)
+                            else
                             {
-                                Senha = Responsavel.Autenticar(txbCadastroEmail.Text);
-
-
-                                PulaPagina(-149);
-
-                                txbCadastroSenhaTemp.Focus();
-
-                                lblCadastroTitulo.Text = "                 Alterar Senha";
-                            } 
-                        }
-                        else
-                        {
-                            throw new Exception("E-mail não é valido! Apenas e-mail com domínio (solarbr.com.br)");
-                        }
-
+                                throw new Exception("E-mail não é valido! Apenas e-mail com domínio (solarbr.com.br)");
+                            }
+                       // }
                         break;
                     case 2:
                         if (Senha == txbCadastroSenhaTemp.Text && txbCadastroSenha.Text != "" && txbCadastroConfirmar.Text != "" && txbCadastroSenha.Text == txbCadastroConfirmar.Text)

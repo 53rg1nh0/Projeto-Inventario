@@ -14,10 +14,10 @@ namespace UI
             try
             {
                 Conexao con = new Conexao();
+                Tabela.AtualizarUnidades();
                 frmLogin f = new frmLogin();
                 if (Settings.Default.user == "")
                 {
-                    Tabela.AtualizarUnidades();
                     f.ShowDialog();
                     Settings.Default.user = Responsavel.Usuario;
                     Settings.Default.Save();

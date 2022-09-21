@@ -1,5 +1,4 @@
-﻿using RegrasDeNegocio;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,134 +11,32 @@ using UI.Properties;
 
 namespace UI
 {
-    public partial class frmLogin : Form
+    public partial class frmEditarCadastro : Form
     {
-        private string senha;
-        private bool editarCadastro = false;
-        private ucsCadastro ucsCadastro1;
-        public frmLogin()
+        public frmEditarCadastro()
         {
             InitializeComponent();
         }
 
-        private void frmLogin_Load(object sender, EventArgs e)
+        private void frmEditarCadastro_Load(object sender, EventArgs e)
         {
-            ucsLogin.lblUsuario.Text = "Usuário";
-            ucsLogin.lblSenhaAntiga.Text = "Senha";
-            ucsLogin.lblCadastrar.Text = "Cadastrar";
-            ucsLogin.lblEditarCadastro.Text = "Editar Cadastro";
-            ucsLogin.txbLoginSenhaAntiga.PasswordChar = '*';
-
-            ucsLogin.btnNext.Click += Next;
-            ucsLogin.btnFechar.Click += Fechar;
-            ucsLogin.lblEditarCadastro.Click += EditarCadastro;
             Animacao.Arrastar(this);
+            Desenhar();
+
         }
 
-        private void Next(object sender, EventArgs e)
+        private void Desenhar()
         {
-            if (!editarCadastro)
-            {
-                if (ucsLogin.txbLoginNome.Text == "" || ucsLogin.txbLoginSenhaAntiga.Text == "")
-                {
-                    MessageBox.Show("Não pode haver campos em branco!");
-                }
-                else
-                {
-                    try
-                    {
-                        Responsavel r = new Responsavel(ucsLogin.txbLoginNome.Text);
-                        if (r.Senha == ucsLogin.txbLoginSenhaAntiga.Text)
-                        {
-                            r.Logar();
-                            this.Close();
-                        }
-                        else
-                        {
-                            throw new Exception("Usuário ou senha imcorretos!");
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                        ucsLogin.txbLoginSenhaAntiga.Text = "";
-                    }
-                }
-            }
-            else
-            {
-                Cliente c = new Cliente(ucsLogin.txbLoginNome.Text.ToLower());
-                try
-                {
-                    Responsavel r = new Responsavel(ucsLogin.txbLoginNome.Text.ToLower());
-                    senha = Responsavel.Autenticar(r.Email);
-
-                    LayoutFormulario();
-                    Animacao.Arrastar(this);
-                }
-                catch (ExcessaoRegraNegocio)
-                {
-                    throw new Exception("Usuário não existe");
-                }
-            }
-        }
-
-        private void EditarCadastro(object sender, EventArgs e)
-        {
-            if (!editarCadastro)
-            {
-                editarCadastro = true;
-                ucsLogin.lblSenhaAntiga.Visible = false;
-                ucsLogin.txbLoginSenhaAntiga.Visible = false;
-                ucsLogin.lblCadastrar.Visible = false;
-                ucsLogin.lblEditarCadastro.Text = "Voltar";
-            }
-            else
-            {
-                editarCadastro = false;
-                ucsLogin.lblSenhaAntiga.Visible = true;
-                ucsLogin.txbLoginSenhaAntiga.Visible = true;
-                ucsLogin.lblCadastrar.Visible = true;
-                ucsLogin.lblEditarCadastro.Text = "Editar Cadastro";
-            }
-        }
-
-        private void Voltar(object sender, EventArgs e)
-        {
-            Application.Restart();
-        }
-
-        private void Fechar(object sender, EventArgs e)
-        {
-            if (editarCadastro)
-            {
-                Application.Exit();
-            }
-        }
-
-        private void LayoutFormulario()
-        {
-            this.ucsCadastro1 = new UI.ucsCadastro();
-            this.ClientSize = new System.Drawing.Size(898, 267);
-            this.Controls.Add(this.ucsCadastro1);
-
-            ucsLogin.Dock = System.Windows.Forms.DockStyle.None;
-            ucsLogin.Visible = false;
-
-            this.ucsCadastro1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucsCadastro1.Location = new System.Drawing.Point(0, 0);
-            this.ucsCadastro1.Size = new System.Drawing.Size(898, 267);
-
             // 
             // pnlCadastroTop
             // 
             ucsCadastro1.pnlCadastroTop.Dock = System.Windows.Forms.DockStyle.None;
-            ucsCadastro1.pnlCadastroTop.Location = new Point(10, 18);
+            ucsCadastro1.pnlCadastroTop.Location = new Point(10,18);
             ucsCadastro1.pnlCadastroTop.Size = new Size(292, 119);
             // 
             // lblCadastroTitulo
             // 
-            ucsCadastro1.lblCadastroTitulo.Text = "               Editar Cadastro";
+            ucsCadastro1.lblCadastroTitulo.Text= "               Editar Cadastro";
             // 
             // pnlCadastroCentral
             // 
@@ -170,7 +67,7 @@ namespace UI
             // 
             // mtbCadastroTelCorp
             // 
-            ucsCadastro1.mtbCadastroTelCorp.Location = new System.Drawing.Point(306, 30); ;
+            ucsCadastro1.mtbCadastroTelCorp.Location = new System.Drawing.Point(306, 30);;
             ucsCadastro1.mtbCadastroTelCorp.Size = new System.Drawing.Size(266, 23);
             // 
             // txbCadastroUsuario

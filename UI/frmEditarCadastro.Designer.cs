@@ -1,6 +1,6 @@
 ﻿namespace UI
 {
-    partial class frmLogin
+    partial class frmEditarCadastro
     {
         /// <summary>
         /// Required designer variable.
@@ -28,39 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
-            this.ucsLogin = new UI.ucsLogin();
+            this.ucsCadastro1 = new UI.ucsCadastro();
             this.SuspendLayout();
             // 
-            // ucsLogin
+            // ucsCadastro1
             // 
-            this.ucsLogin.Location = new System.Drawing.Point(-2, 0);
-            this.ucsLogin.Name = "ucsLogin";
-            this.ucsLogin.Size = new System.Drawing.Size(335, 347);
-            this.ucsLogin.TabIndex = 0;
+            this.ucsCadastro1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ucsCadastro1.Location = new System.Drawing.Point(0, 0);
+            this.ucsCadastro1.Name = "ucsCadastro1";
+            this.ucsCadastro1.Size = new System.Drawing.Size(898, 267);
+            this.ucsCadastro1.TabIndex = 0;
+            this.ucsCadastro1.Unidades = null;
             // 
-            // frmLogin
+            // frmEditarCadastro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(333, 347);
-            this.Controls.Add(this.ucsLogin);
-            this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.ClientSize = new System.Drawing.Size(898, 267);
+            this.Controls.Add(this.ucsCadastro1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximizeBox = false;
-            this.MdiChildrenMinimizedAnchorBottom = false;
-            this.MinimizeBox = false;
-            this.Name = "frmLogin";
-            this.RightToLeftLayout = true;
-            this.Text = "Login";
-            this.Load += new System.EventHandler(this.frmLogin_Load);
+            this.Name = "frmEditarCadastro";
+            this.Text = "frmEditarCadastro";
+            this.Load += new System.EventHandler(this.frmEditarCadastro_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        public ucsLogin ucsLogin;
+        private ucsCadastro ucsCadastro1;
     }
 }
