@@ -429,7 +429,9 @@
             // 
             // ucsHome
             // 
+            this.ucsHome.BackColor = System.Drawing.SystemColors.Control;
             this.ucsHome.Location = new System.Drawing.Point(31, 26);
+            this.ucsHome.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.ucsHome.Name = "ucsHome";
             this.ucsHome.Size = new System.Drawing.Size(120, 107);
             this.ucsHome.TabIndex = 3;

@@ -1,4 +1,5 @@
-﻿using RegrasDeNegocio;
+﻿using ConexaoDB;
+using RegrasDeNegocio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -68,9 +69,9 @@ namespace UI
             }
             else
             {
-                Cliente c = new Cliente(ucsLogin.txbLoginNome.Text.ToLower());
                 try
                 {
+                    Cliente c = new Cliente(ucsLogin.txbLoginNome.Text.ToLower());
                     Responsavel r = new Responsavel(ucsLogin.txbLoginNome.Text.ToLower());
                     senha = Responsavel.Autenticar(r.Email);
 
@@ -79,8 +80,13 @@ namespace UI
                 }
                 catch (ExcessaoRegraNegocio)
                 {
-                    throw new Exception("Usuário não existe");
+                    MessageBox.Show("Usuário não existe");
                 }
+                catch (ExcessaoBanco ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
             }
         }
 
@@ -106,15 +112,16 @@ namespace UI
 
         private void Voltar(object sender, EventArgs e)
         {
-            Application.Restart();
+            if (editarCadastro)
+            {
+                Application.Restart();
+            }
+
         }
 
         private void Fechar(object sender, EventArgs e)
         {
-            if (editarCadastro)
-            {
-                Application.Exit();
-            }
+            Application.Exit();
         }
 
         private void LayoutFormulario()
@@ -278,5 +285,6 @@ namespace UI
             ucsCadastro1.Size = new System.Drawing.Size(898, 269);
 
         }
+
     }
 }

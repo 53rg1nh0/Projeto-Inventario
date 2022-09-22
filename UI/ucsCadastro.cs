@@ -51,32 +51,11 @@ namespace UI
             Regex s3 = new Regex(esp);
             Regex s4 = new Regex(mai);
             try
-
             {
                 switch (pagina)
                 {
                     case 1:
-                        //if (cadastro)
-                        //{
-                        //    Cliente c = new Cliente(txbCadastroUsuario.Text.ToLower());
-                        //    try
-                        //    {
-                        //        Responsavel r = new Responsavel(txbCadastroUsuario.Text.ToLower());
-                        //        Senha = Responsavel.Autenticar(r.Email);
-
-                        //        this.Visible = false;
-
-                        //        frmEditarCadastro frmEditarCadastro = new frmEditarCadastro();
-                        //        frmEditarCadastro.ShowDialog();
-
-                        //    }
-                        //    catch (ExcessaoRegraNegocio)
-                        //    {
-                        //        throw new Exception("Usuário não existe");
-                        //    }
-                        //}
-                        //else
-                        //{
+                        
                             if (re.IsMatch(txbCadastroEmail.Text))
                             {
                                 Cliente c = new Cliente(txbCadastroUsuario.Text.ToLower());

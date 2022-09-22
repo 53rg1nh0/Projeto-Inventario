@@ -1,3 +1,7 @@
+using ConexaoDB;
+using RegrasDeNegocio;
+using UI.Properties;
+
 namespace UI
 {
     internal static class Program
@@ -13,11 +17,35 @@ namespace UI
                 // To customize application configuration such as set high DPI settings or default font,
                 // see https://aka.ms/applicationconfiguration.
                 ApplicationConfiguration.Initialize();
+                Conexao con = new Conexao();
+                Tabela.AtualizarUnidades();
+                frmLogin f = new frmLogin();
+                if (Settings.Default.user == "")
+                {
+                    f.ShowDialog();
+                    if (string.IsNullOrEmpty(Responsavel.Usuario))
+                    {
+                        throw new Exception("teste");
+                    }
+                    Settings.Default.user = Responsavel.Usuario;
+                    Settings.Default.Save();
+                }
+                else
+                {
+                    Responsavel r = new Responsavel(Settings.Default.user);
+                    r.Logar();
+                }
+
+
+                Tabela.AtualizarUnidades();
                 Application.Run(new FrmInventario());
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                if (ex.Message != "teste")
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
     }

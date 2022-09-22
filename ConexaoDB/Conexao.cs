@@ -1,4 +1,5 @@
 using System;
+using System.Data;
 using System.Data.OleDb;
 using System.Threading;
 using System.Windows;
@@ -41,14 +42,20 @@ namespace ConexaoDB
                 {
                     throw new ExcessaoBanco("Erro ao incerir os dados!");
                 }
+                finally
+                {
+                    if (Con.State == ConnectionState.Open)
+                    {
+                        Con.Close();    
+                    }
+                }
             }
         }
 
         public DataTable SqlCapturar(string sqlComand)
         {
             using (Con)
-            {
-                    
+            {     
                 try
                 {
                     new Thread(TempoEstouro).Start();
@@ -69,6 +76,13 @@ namespace ConexaoDB
                 {
                     timeOut=false;
                     throw new ExcessaoBanco("Erro ao conectar o Banco de Dados! Verifique se está conectado na rede local da empresa.Caso não conecte a VPN!");
+                }
+                finally
+                {
+                    if(Con.State == ConnectionState.Open)
+                    {
+                        Con.Close();
+                    }
                 }
             }
 

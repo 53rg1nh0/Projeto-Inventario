@@ -11,31 +11,6 @@ namespace UI
         public FrmInventario()
         {
 
-            try
-            {
-                Conexao con = new Conexao();
-                Tabela.AtualizarUnidades();
-                frmLogin f = new frmLogin();
-                if (Settings.Default.user == "")
-                {
-                    f.ShowDialog();
-                    Settings.Default.user = Responsavel.Usuario;
-                    Settings.Default.Save();
-                }
-                else
-                {
-                    Responsavel r = new Responsavel(Settings.Default.user);
-                    r.Logar();
-                }
-
-                
-                Tabela.AtualizarUnidades();
-            }
-            catch (ExcessaoBanco ex)
-            {
-                MessageBox.Show(ex.Message, "Erro de conexão!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Application.Exit();
-            }
             InitializeComponent();
 
             lblUnidade.Text += " " + Responsavel.Local;
@@ -50,29 +25,7 @@ namespace UI
 
             uscAjuste.uscCrudUnidades.dgvAlterarUnidade.DataSource = Tabela.Unidades;
         }
-
-
-
-        private void Paineis(bool cl, bool eq)
-        {
-            pnlCliente.Visible = cl;
-            pnlEquipamento.Visible = eq;
-        }
-
-        private void Paginas(Control c)
-        {
-            foreach (Control container in pnlBack.Controls)
-            {
-                if (container != c)
-                {
-                    container.Visible = false;
-                    container.Dock = DockStyle.None;
-                }
-
-            }
-            c.Visible = true;
-            c.Dock = DockStyle.Fill;
-        }
+        
 
         private void btnHome_Click(object sender, EventArgs e)
         {
@@ -112,7 +65,23 @@ namespace UI
         {
             Paineis(false, true);
         }
-
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            if (pnlNavegacaoBack.Width == 180)
+            {
+                pnlNavegacaoBack.Width = 60;
+                pnlLogo.Width = 60;
+                pnlLogoSolar.Visible = false;
+                pnlTopLogo.BorderStyle = BorderStyle.None;
+            }
+            else
+            {
+                pnlNavegacaoBack.Width = 180;
+                pnlLogo.Width = 180;
+                pnlLogoSolar.Visible = true;
+                pnlTopLogo.BorderStyle = BorderStyle.FixedSingle;
+            }
+        }
 
         public static void AnimacaoBotoes(Control container, Button botao)
         {
@@ -150,24 +119,27 @@ namespace UI
                 }
             }
         }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void Paineis(bool cl, bool eq)
         {
-            if (pnlNavegacaoBack.Width == 180)
-            {
-                pnlNavegacaoBack.Width = 60;
-                pnlLogo.Width = 60;
-                pnlLogoSolar.Visible = false;
-                pnlTopLogo.BorderStyle = BorderStyle.None;
-            }
-            else
-            {
-                pnlNavegacaoBack.Width = 180;
-                pnlLogo.Width = 180;
-                pnlLogoSolar.Visible = true;
-                pnlTopLogo.BorderStyle = BorderStyle.FixedSingle;
-            }
+            pnlCliente.Visible = cl;
+            pnlEquipamento.Visible = eq;
         }
+
+        private void Paginas(Control c)
+        {
+            foreach (Control container in pnlBack.Controls)
+            {
+                if (container != c)
+                {
+                    container.Visible = false;
+                    container.Dock = DockStyle.None;
+                }
+
+            }
+            c.Visible = true;
+            c.Dock = DockStyle.Fill;
+        }
+       
 
     }
 }
